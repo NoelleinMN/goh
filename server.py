@@ -3,7 +3,7 @@
 from flask import (Flask, render_template, request, flash, session,
                    redirect)
 from model import connect_to_db
-# import crud
+import crud
 
 from jinja2 import StrictUndefined
 
@@ -19,16 +19,16 @@ def homepage():
     return render_template('homepage.html')
 
 
-# @app.route('/profiles')
-# def all_movies():
-#     """View all user profiles."""
+@app.route('/favorites')
+def all_favorites():
+    """View all favorited parks."""
 
-#     movies = crud.get_movies()
+    favorites = crud.get_favorite_parks()
 
-#     return render_template('all_movies.html', movies=movies)
+    return render_template('all_movies.html', favorites=favorites)
 
 
-@app.route('/movies/<movie_id>')
+@app.route('/favorites/<park_API_id>')
 def show_movie(movie_id):
     """Show details on a particular movie."""
 

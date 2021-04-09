@@ -41,7 +41,7 @@ def get_user_by_zipcode(user_zipcode):
     return User.query.filter(User.user_zipcode == user_zipcode).all()
 
 
-def create_favorite_park(title, overview, release_date, poster_path):
+def create_favorite_park(park_API_id, park_name, park_zipcode, park_street_address, park_city, park_state):
     """Create and return a newly favorited park."""
 
     favorite_park = Favorite_Park(park_API_id=park_API_id, park_name=park_name,

@@ -4,9 +4,9 @@ def example_data():
     """Create some sample data."""
 
     # In case this is run more than once, empty out existing data
-    User.query.delete()
-    User_Favorite.query.delete()
-    Favorite_Park.query.delete()
+    # User.query.delete()
+    # User_Favorite.query.delete()
+    # Favorite_Park.query.delete()
 
     # Add sample parks
     como = Favorite_Park(park_API_id=120, park_name='Como Lake Park', park_zipcode=55117, 
