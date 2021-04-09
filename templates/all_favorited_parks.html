@@ -5,10 +5,10 @@
   <h1>All Parks</h1>
 
   <ul>
-    {% for park in favorite_parks %}
+    {% for park in favorites %}
       <li>
-        <a href="/favorites/{{ favorite_parks.park_name }}">
-          {{ favorite_parks.park_name }}
+        <a href="/favorites/{{ park.park_name }}">
+          {{ park.park_name }}
         </a>
       </li>
     {% endfor %}

@@ -28,13 +28,13 @@ def all_favorites():
     return render_template('all_favorited_parks.html', favorites=favorites)
 
 
-@app.route('/favorites/<park_API_id>')
-def show_movie(movie_id):
-    """Show details on a particular movie."""
+# @app.route('/favorites/<park_API_id>')
+# def show_movie(movie_id):
+#     """Show details on a particular movie."""
 
-    movie = crud.get_movie_by_id(movie_id)
+#     movie = crud.get_movie_by_id(movie_id)
 
-    return render_template('movie_details.html', movie=movie)
+#     return render_template('movie_details.html', movie=movie)
 
 
 @app.route('/users')
