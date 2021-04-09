@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}All Parks{% endblock %}
+
+{% block body %}
+  <h1>All Parks</h1>
+
+  <ul>
+    {% for park in favorite_parks %}
+      <li>
+        <a href="/favorites/{{ favorite_parks.park_name }}">
+          {{ favorite_parks.park_name }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

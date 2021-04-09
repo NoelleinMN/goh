@@ -25,7 +25,7 @@ def all_favorites():
 
     favorites = crud.get_favorite_parks()
 
-    return render_template('all_movies.html', favorites=favorites)
+    return render_template('all_favorited_parks.html', favorites=favorites)
 
 
 @app.route('/favorites/<park_API_id>')
