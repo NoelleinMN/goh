@@ -67,9 +67,6 @@ def example_data():
 example_data()
 
 
-
-
-
 #### ALL BELOW IS FROM MOVIES LAB ####
 # Load movie data from JSON file
 # with open('data/movies.json') as f:

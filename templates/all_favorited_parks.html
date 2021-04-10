@@ -10,7 +10,17 @@
         <a href="/favorites/{{ park.park_name }}">
           {{ park.park_name }}
         </a>
-      </li>
+    </li>
+         <b>{{ park.park_name }}</b>
+        
+        <br>Park # {{ park.park_API_id }}</br>
+        {{ park.park_street_address }}
+        {{ park.park_city }}, {{ park.park_state }} {{ park.park_zipcode }}
+        <br></br>
+    
     {% endfor %}
+
+
+
   </ul>
 {% endblock %}

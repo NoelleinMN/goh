@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}All Users{% endblock %}
+
+{% block body %}
+  <h1>All Users</h1>
+
+  <ul>
+    {% for user in users %}
+      <li>
+        <a href="/users/{{ user.user_first_name }}">
+          {{ user.email }}
+        </a>
+      </li>
+
+      <b>{{ user.user_first_name }} {{ user.user_last_name }}</b> Email: {{ user.user_email }}
+        
+      <br>Park # {{ park.park_API_id }}</br>
+      <br>{{ park.park_street_address }}</br>
+      {{ park.park_city }}, {{ park.park_state }} {{ park.park_zipcode }}
+      <br></br>
+
+      user_zipcode = db.Column(db.Integer, nullable=False)
+      user_street_address = db.Column(db.String)
+      user_city = db.Column(db.String)
+      user_state = db.Column(db.String) # how to limit to two character abbreviation?
+      user_activity1 = db.Column(db.String)
+      user_activity2 = db.Column(db.String)
+      user_activity3 = db.Column(db.String)
+      max_search_distance = db.Column(db.Integer)
+      pet_friendly = db.Column(db.Boolean, default=False) 
+      family_friendly = db.Column(db.Boolean, default=False)
+      accessibility_needs = db.Column(db.Boolean, default=False)
+      amenities1 = db.Column(db.String)
+      amenities2 = db.Column(db.String)
+      children_infant = db.Column(db.Boolean, default=False)
+      children_toddler = db.Column(db.Boolean, default=False)
+      children_schoolage = db.Column(db.Boolean, default=False)
+      children_teen = db.Column(db.Boolean, default=False)
+
+
+
+
+
+
+
+    {% endfor %}
+  </ul>
+{% endblock %}
