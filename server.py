@@ -64,12 +64,12 @@ def all_users():
 
 
 @app.route('/users/<user_email>')
-def show_user_profile(user_id):
+def show_user_profile(user_email):
     """Show profile of a specific user by email."""
 
-    user = crud.get_user_by_id(user_id)
+    user = crud.get_user_by_email(user_email)
 
-    return render_template('user_details.html', user=user)
+    return render_template('user_profile.html', user=user)
 
 
 if __name__ == '__main__':
