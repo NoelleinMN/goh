@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ user.user_first_name }}'s Page{% endblock %}
+
+{% block body %}
+
+<form>
+    <label>Email</label>
+    <input type="text" name="email">
+  </form>
+
+  <form>
+    Choose your STATE
+  
+    <select name="lang">
+      <option value="python">Python</option>
+      <option value="javascript">JavaScript</option>
+      <option value="ruby">Ruby</option>
+    </select>
+  </form>
+
+
+<form>
+    What music genres do you like?
+  
+    <input type="checkbox" name="genres" value="pop">
+    <label>Pop</label>
+  
+    <input type="checkbox" name="genres" value="hiphop">
+    <label>Hip Hop</label>
+  
+    <input type="checkbox" name="genres" value="Other">
+    <label>Other</label>
+  </form>
+
+
+<h1>{{ user.user_email }}</h1>
+
+<form>
+    <input type="submit">
+  </form>
+   
+  <form>
+    <button type="submit">Log In</button>
+  </form>
+
+
+{% endblock %}
