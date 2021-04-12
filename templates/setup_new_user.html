@@ -45,4 +45,26 @@
   </form>
 
 
+
+
+
+  user_zipcode = db.Column(db.Integer, nullable=False)
+  user_street_address = db.Column(db.String)
+  user_city = db.Column(db.String)
+  user_state = db.Column(db.String) # how to limit to two character abbreviation?
+  user_activity1 = db.Column(db.String)
+  user_activity2 = db.Column(db.String)
+  user_activity3 = db.Column(db.String)
+  max_search_distance = db.Column(db.Integer)
+  pet_friendly = db.Column(db.Boolean, default=False) 
+  family_friendly = db.Column(db.Boolean, default=False)
+  accessibility_needs = db.Column(db.Boolean, default=False)
+  amenities1 = db.Column(db.String)
+  amenities2 = db.Column(db.String)
+  children_infant = db.Column(db.Boolean, default=False)
+  children_toddler = db.Column(db.Boolean, default=False)
+  children_schoolage = db.Column(db.Boolean, default=False)
+  children_teen = db.Column(db.Boolean, default=False)
+
+
 {% endblock %}

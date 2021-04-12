@@ -12,36 +12,67 @@
         </a>
       </li>
 
-      <b>{{ user.user_first_name }} {{ user.user_last_name }}</b> Email: {{ user.user_email }}
-        
-      <br>Profile Information</br>
-      <br>{{ user.user_street_address }}</br>
-      {{ user.user_city }}, {{ user.user_state }} {{ user.user_zipcode }}
+      <h2>{{ user.user_first_name }} {{ user.user_last_name }}</h2>
+
+      <h3>Profile Information</h3>
+      <table>
+        <tr>
+            <td>Email:</td>
+            <td>{{ user.user_email }}</td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td>      <br>{{ user.user_street_address }}</br>
+            {{ user.user_city }}, {{ user.user_state }} {{ user.user_zipcode }}</td>
+        </tr>
+        <tr>
+            <td>Max Search:</td>
+            <td>{{ user.max_search_distance }} miles</td>
+        </tr>
+        <tr>
+            <td>Favorite Activities:</td>
+            <td>{{ user.user_activity1 }}, {{ user.user_activity2 }}, {{ user.user_activity3 }}</td>
+        </tr>
+        <tr>
+            <td>Preferred Amenities:    </td>
+            <td>{{ user.amenities1 }}, {{ user.amenities2 }}</td>
+        </tr>
+        <tr>
+            <td>Accessibility Needs?</td>
+            <td>{{ user.accessibility_needs }}</td>
+        </tr>
+        <tr>
+            <td>Pet Friendly?    </td>
+            <td>{{ user.pet_friendly }}</td>
+        </tr>
+        <tr>
+            <td>Family Friendly?</td>
+            <td>{{ user.family_friendly }}</td>
+        </tr>
+        <tr>  
+            <td>Children</td>
+            <td>
+                <table border="3px" bordercolor="#F35550">
+                <h4 align="center">Ages</h4>
+                    <tr>
+                        <td>Infant</td>
+                        <td>Toddler</td>
+                        <td>Schoolage</td>
+                        <td>Teen</td>
+                    </tr>
+                    <tr>
+                        <td>{{ user.children_infant }}</td>
+                        <td>{{ user.children_toddler }}</td>
+                        <td>{{ user.children_schoolage }}</td>
+                        <td>{{ user.children_teen }}</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+      </table>
+
+
       <br></br>
-
-      user_zipcode = db.Column(db.Integer, nullable=False)
-      user_street_address = db.Column(db.String)
-      user_city = db.Column(db.String)
-      user_state = db.Column(db.String) # how to limit to two character abbreviation?
-      user_activity1 = db.Column(db.String)
-      user_activity2 = db.Column(db.String)
-      user_activity3 = db.Column(db.String)
-      max_search_distance = db.Column(db.Integer)
-      pet_friendly = db.Column(db.Boolean, default=False) 
-      family_friendly = db.Column(db.Boolean, default=False)
-      accessibility_needs = db.Column(db.Boolean, default=False)
-      amenities1 = db.Column(db.String)
-      amenities2 = db.Column(db.String)
-      children_infant = db.Column(db.Boolean, default=False)
-      children_toddler = db.Column(db.Boolean, default=False)
-      children_schoolage = db.Column(db.Boolean, default=False)
-      children_teen = db.Column(db.Boolean, default=False)
-
-
-
-
-
-
 
     {% endfor %}
   </ul>
