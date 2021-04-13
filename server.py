@@ -1,6 +1,6 @@
 """Server for GOH!"""
 
-from flask import (Flask, render_template, request, flash, session,
+from flask import (Flask, jsonify, render_template, request, flash, session,
                    redirect)
 from model import connect_to_db
 import crud
@@ -39,12 +39,19 @@ def user_login():
 
     if user:
         if password == user.user_password:
-            return redirect('/users')
+            # session['user'] = user
+            session['user_first_name'] = user.user_first_name    # not working on html page?
+            session['user_email'] = user.user_email
+            print(user)
+            print(user.user_first_name)
+            print(user.user_email)
+            # print(session['user'])
+            return render_template('user_profile.html', user=user)           # correct this to go to a user's park and profile page
         else:
             flash('Email and password do not match. Try again.')
             return redirect ('/')
     else:
-        flash('No user with that email. Please create an account.')
+        flash('No user with that email. Please create a new profile.')
         return redirect ('/')
 
     #return redirect('/')
@@ -77,21 +84,22 @@ def all_favorites():
     return render_template('all_favorited_parks.html', favorites=favorites)
 
 
-# @app.route('/newaccount', methods=['POST'])
-# def create_user_profile():
-#     """Create a new user profile."""
+@app.route('/newuser') #, methods=['POST'])
+def create_user_profile():
+    """Create a new user profile."""
 
-#     email = request.form.get('email')
-#     password = request.form.get('password')
+    # email = request.form.get('email')
+    # password = request.form.get('password')
 
-#     user = crud.get_user_by_email(email)
-#     if user:
-#         flash('Cannot create an account with that email. Try again.')
-#     else:
-#         crud.create_user(email, password)
-#         flash('Account created! Please log in.')
+    # user = crud.get_user_by_email(email)
+    # if user:
+    #     flash('Cannot create an account with that email. Try again.')
+    # else:
+    #     crud.create_user(email, password)
+    #     flash('Account created! Please log in.')
 
-#     return redirect('/')
+    return render_template('setup_new_user.html')
+    # return redirect('/')
 
 
 # @app.route('/favorites/<park_API_id>')

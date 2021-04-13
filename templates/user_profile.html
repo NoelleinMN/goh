@@ -1,7 +1,82 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ user.user_first_name }}'s Page{% endblock %}
+{% block title %}GOH! {{ user.user_first_name }} GOH!{% endblock %}
 
 {% block body %}
-<h1>{{ user.user_email }}</h1>
+
+  <h2>Navigation</h2>
+  <ul>
+    <li><a href="/favorites">View all favorite parks</a></li>
+    <li><a href="/">GOH! homepage</a></li>
+  </ul>
+
+  <h1>{{ user.user_first_name }}'s Profile</h1>
+
+  <ul>
+      <li>
+        <a href="/users/{{ user.user_first_name }}">
+          {{ user.user_email }}
+        </a>
+      </li>
+
+      <h2>{{ user.user_first_name }} {{ user.user_last_name }}</h2>
+
+      <h3>Profile Information</h3>
+      <table>
+        <tr>
+            <td>Email:</td>
+            <td>{{ user.user_email }}</td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td>      <br>{{ user.user_street_address }}</br>
+            {{ user.user_city }}, {{ user.user_state }} {{ user.user_zipcode }}</td>
+        </tr>
+        <tr>
+            <td>Max Search:</td>
+            <td>{{ user.max_search_distance }} miles</td>
+        </tr>
+        <tr>
+            <td>Favorite Activities:</td>
+            <td>{{ user.user_activity1 }}, {{ user.user_activity2 }}, {{ user.user_activity3 }}</td>
+        </tr>
+        <tr>
+            <td>Preferred Amenities:    </td>
+            <td>{{ user.amenities1 }}, {{ user.amenities2 }}</td>
+        </tr>
+        <tr>
+            <td>Accessibility Needs?</td>
+            <td>{{ user.accessibility_needs }}</td>
+        </tr>
+        <tr>
+            <td>Pet Friendly?    </td>
+            <td>{{ user.pet_friendly }}</td>
+        </tr>
+        <tr>
+            <td>Family Friendly?</td>
+            <td>{{ user.family_friendly }}</td>
+        </tr>
+        <tr>  
+            <td>Children</td>
+            <td>
+                <table border="3px" bordercolor="#F35550">
+                <h4 align="center">Ages</h4>
+                    <tr>
+                        <td>Infant</td>
+                        <td>Toddler</td>
+                        <td>Schoolage</td>
+                        <td>Teen</td>
+                    </tr>
+                    <tr>
+                        <td>{{ user.children_infant }}</td>
+                        <td>{{ user.children_toddler }}</td>
+                        <td>{{ user.children_schoolage }}</td>
+                        <td>{{ user.children_teen }}</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+      </table>
+      <br></br>
+  </ul>
 {% endblock %}
