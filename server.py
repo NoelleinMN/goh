@@ -28,15 +28,36 @@ def all_users():
     return render_template('all_users.html', users=users)
 
 
-@app.route('/login')
-def show_login_page(user_email):
+@app.route('/login', methods=['POST'])
+def user_login():
+    """Check for user and allow login."""
+
+    email = request.form.get('email')
+    password = request.form.get('password')
+
+    user = crud.get_user_by_email(email)
+
+    if user:
+        if password == user.user_password:
+            return redirect('/users')
+        else:
+            flash('Email and password do not match. Try again.')
+            return redirect ('/')
+    else:
+        flash('No user with that email. Please create an account.')
+        return redirect ('/')
+
+    #return redirect('/')
+
+
+@app.route('/login/parks')
+def show_login_page():  #user_email):
     """Show page for specific user with parks."""
 
     # user = crud.get_user_by_email(user_email)
-    parks = crud.get_parks_by_user_zipcode(user_zipcode)
+    # parks = crud.get_parks_by_user_zipcode(user_zipcode)
 
-    return render_template('user_login_page.html', parks=parks)
-
+    # return render_template('user_login_page.html', parks=parks)
 
 @app.route('/login/<user_email>')
 def show_user_profile(user_email):
