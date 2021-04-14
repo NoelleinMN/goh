@@ -4,12 +4,16 @@ from flask import (Flask, jsonify, render_template, request, flash, session,
                    redirect)
 from model import connect_to_db
 import crud
+import os
 
 from jinja2 import StrictUndefined
 
 app = Flask(__name__)
 app.secret_key = "servertests"
 app.jinja_env.undefined = StrictUndefined
+
+API_KEY = os.environ['GOOGLE_MAPS_KEY']
+
 
 
 @app.route('/')
@@ -82,6 +86,12 @@ def all_favorites():
     favorites = crud.get_favorite_parks()
 
     return render_template('all_favorited_parks.html', favorites=favorites)
+
+@app.route('/map')
+def map_search():
+    """View local park maps."""
+
+    return render_template('map_practice.html',API_KEY=API_KEY)
 
 
 @app.route('/newuser') #, methods=['POST'])
