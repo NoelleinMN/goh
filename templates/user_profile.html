@@ -79,4 +79,20 @@
       </table>
       <br></br>
   </ul>
+
+    <li>
+        <a href="https://maps.googleapis.com/maps/api/geocode/json?address={{ user.user_zipcode }}&key={{API_KEY}}">
+        {{ user.user_first_name }}'s Map
+        </a>
+    </li>
+
+<!-- 
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key={{API_KEY}}&callback=initMap">
+    </script>
+
+
+    <script src=
+    "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key={{API_KEY}}">
+    </script> -->
 {% endblock %}

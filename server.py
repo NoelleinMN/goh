@@ -50,7 +50,7 @@ def user_login():
             print(user.user_first_name)
             print(user.user_email)
             # print(session['user'])
-            return render_template('user_profile.html', user=user)           # correct this to go to a user's park and profile page
+            return render_template('user_profile.html', user=user, API_KEY=API_KEY)           # correct this to go to a user's park and profile page
         else:
             flash('Email and password do not match. Try again.')
             return redirect ('/')
@@ -76,7 +76,7 @@ def show_user_profile(user_email):
 
     user = crud.get_user_by_email(user_email)
 
-    return render_template('user_profile.html', user=user)
+    return render_template('user_profile.html', user=user, API_KEY=API_KEY)
 
 
 @app.route('/favorites')
@@ -91,7 +91,7 @@ def all_favorites():
 def map_search():
     """View local park maps."""
 
-    return render_template('map_practice.html',API_KEY=API_KEY)
+    return render_template('map_practice3.html', API_KEY=API_KEY)
 
 
 @app.route('/newuser') #, methods=['POST'])

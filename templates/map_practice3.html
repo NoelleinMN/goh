@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Place Search Pagination</title>
+    <link rel="stylesheet" href="/static/map3.css"/>
+
+    <script src="/static/map3.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="map"></div>
+      <div id="sidebar">
+        <h2>Results</h2>
+        <ul id="places"></ul>
+        <button id="more">Load more results</button>
+      </div>
+    </div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key={{API_KEY}}&callback=initMap&libraries=places&v=weekly&map_ids=fdc5db512c072b42"
+      async
+    ></script>
+  </body>
+</html>
+
