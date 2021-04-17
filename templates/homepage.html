@@ -29,10 +29,16 @@
 
 
   <h2>Search without logging in</h2>
-  <form action="/parks_search" method="POST">
+  <form action="/parks/search" method="GET">
     <p>
-       Zip code <input type="text" name="user_zipcode">
+       Zip code <input type="text" name="zipcode">
     </p>
       <input type="submit">
   </form>
+
+  <!-- <p>
+    <a class="btn btn-primary" href="/afterparty">
+      Click here to search for an event
+    </a>
+  </p> -->
 {% endblock %}

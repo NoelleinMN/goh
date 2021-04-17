@@ -2,6 +2,7 @@
 
 from flask import (Flask, jsonify, render_template, request, flash, session,
                    redirect)
+import requests
 from model import connect_to_db
 import crud
 import os
@@ -92,6 +93,36 @@ def map_search():
     """View local park maps."""
 
     return render_template('map_practice3.html', API_KEY=API_KEY)
+
+
+@app.route('/parks/search')
+def find_parks():
+    """Search for parks based on zipcode in Google Maps query"""
+
+    # keyword = request.args.get('keyword', '')
+    zipcode = request.args.get('zipcode', '')
+    # radius = request.args.get('radius', '')
+    # unit = request.args.get('unit', '')
+    # sort = request.args.get('sort', '')
+    #return redirect (f'https://maps.googleapis.com/maps/api/geocode/json?address={zipcode}&key={API_KEY}')
+    url = f'https://maps.googleapis.com/maps/api/geocode/json?address={zipcode}&key={API_KEY}'
+    # payload = {'apikey': API_KEY,
+    #         #    'keyword': keyword,
+    #            'zipcode': zipcode,
+    #         #    'radius': radius,
+    #         #    'unit': unit,
+    #         #    'sort': sort
+    #            }
+
+    response = requests.get(url) #, params=payload)
+
+    data = response.json()
+    coords = data['results'][0]['geometry']['location']
+
+    return render_template('map_practice.html',
+                           data=data,
+                           coords=coords, API_KEY=API_KEY)
+
 
 
 @app.route('/newuser') #, methods=['POST'])
