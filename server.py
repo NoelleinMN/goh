@@ -117,11 +117,18 @@ def find_parks():
     response = requests.get(url) #, params=payload)
 
     data = response.json()      # does .load() to response to make it a python dictionary
-    coords = data['results'][0]['geometry']['location']
-
-    return render_template('map_practice3.html',
+    try:
+        coords = data['results'][0]['geometry']['location']
+    except IndexError:
+        print('Item index does not exist')
+    
+    if data['status'] == "OK":
+        return render_template('map_practice3.html',
                            data=data, zipcode=zipcode,
                            coords=coords, API_KEY=API_KEY)
+    else:
+        flash('Not a valid location. Please try again.')
+        return redirect ('/')
 
 
 
