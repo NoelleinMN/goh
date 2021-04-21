@@ -21,7 +21,7 @@ API_KEY = os.environ['GOOGLE_MAPS_KEY']
 def homepage():
     """View homepage."""
 
-    return render_template('homepage.html')
+    return render_template('homepage.html', API_KEY=API_KEY)
 
 
 @app.route('/users')
@@ -116,11 +116,11 @@ def find_parks():
 
     response = requests.get(url) #, params=payload)
 
-    data = response.json()
+    data = response.json()      # does .load() to response to make it a python dictionary
     coords = data['results'][0]['geometry']['location']
 
-    return render_template('map_practice.html',
-                           data=data,
+    return render_template('map_practice3.html',
+                           data=data, zipcode=zipcode,
                            coords=coords, API_KEY=API_KEY)
 
 

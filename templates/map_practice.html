@@ -23,7 +23,7 @@
       console.log(coords)
       // Map options
       var options = {
-        zoom:11,
+        zoom:12,
         // center:{lat:44.954445,lng:-93.091301}
         center:coords
       }
@@ -35,6 +35,7 @@
       google.maps.event.addListener(map, 'click', function(event){
         // Add marker
         addMarker({coords:event.latLng});
+        alert("Hi John!");
       });
 
       // Array of markers
