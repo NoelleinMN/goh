@@ -3,6 +3,7 @@
 from flask import (Flask, jsonify, render_template, request, flash, session,
                    redirect)
 import requests
+import json
 from model import connect_to_db
 import crud
 import os
@@ -50,6 +51,7 @@ def user_login():
             print(user)
             print(user.user_first_name)
             print(user.user_email)
+            print(session)
             # print(session['user'])
             return render_template('user_profile.html', user=user, API_KEY=API_KEY)           # correct this to go to a user's park and profile page
         else:
@@ -66,6 +68,12 @@ def user_login():
 def show_login_page():  #user_email):
     """Show page for specific user with parks."""
 
+    user = crud.get_user_by_email(session['user_email'])
+    print(user)
+ 
+    if user:
+        print(session)
+        return render_template('user_parks.html', user=user, API_KEY=API_KEY)
     # user = crud.get_user_by_email(user_email)
     # parks = crud.get_parks_by_user_zipcode(user_zipcode)
 
@@ -123,6 +131,7 @@ def find_parks():
         print('Item index does not exist')
     
     if data['status'] == "OK":
+        print(data)
         return render_template('map_practice3.html',
                            data=data, zipcode=zipcode,
                            coords=coords, API_KEY=API_KEY)
