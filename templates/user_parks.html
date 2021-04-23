@@ -4,29 +4,43 @@
 
 {% block body %}
 
+<head>
+    <title>User Parks</title>
+    <!-- <link rel="stylesheet" href="/static/map.css"/> -->
+    <script src="/static/js/user_park_map.js"></script>
+    <script
+    async defer
+    src="https://maps.googleapis.com/maps/api/js?key={{API_KEY}}&callback=initMap">
+    </script>
+
+<!-- <script>
+    
+    let google_map_url = 'https://maps.googleapis.com/maps/api/place/textsearch/json?query={{user.user_activity1}}+{{user.user_activity2}}+{{user.user_activity3}}&location=44.954445,-93.091301&radius={{user.max_search_distance}}&key={{API_KEY}}'
+    async function showLocalMap() {
+      let response = await fetch(google_map_url);
+      let data = response.json();
+      console.log(data);
+    }
+
+    showLocalMap();
+  </script> -->
+
+  </head>
+
+<section class="profile">
   <h2>Navigation</h2>
   <ul>
     <li><a href="/favorites">View all favorite parks</a></li>
     <li><a href="/">GOH! homepage</a></li>
   </ul>
 
-  <h1>{{ user.user_first_name }}'s Profile</h1>
+  <h1>{{ user.user_first_name }}'s Parks</h1>
 
   <ul>
-      <li>
-        <a href="/users/{{ user.user_first_name }}">
-          {{ user.user_email }}
-        </a>
-      </li>
-
       <h2>{{ user.user_first_name }} {{ user.user_last_name }}</h2>
 
-      <h3>Profile Information</h3>
+      <h3>Parks Information</h3>
       <table>
-        <tr>
-            <td>Email:</td>
-            <td>{{ user.user_email }}</td>
-        </tr>
         <tr>
             <td>Address:</td>
             <td>      <br>{{ user.user_street_address }}</br>
@@ -56,43 +70,21 @@
             <td>Family Friendly?</td>
             <td>{{ user.family_friendly }}</td>
         </tr>
-        <tr>  
-            <td>Children</td>
-            <td>
-                <table border="3px" bordercolor="#F35550">
-                <h4 align="center">Ages</h4>
-                    <tr>
-                        <td>Infant</td>
-                        <td>Toddler</td>
-                        <td>Schoolage</td>
-                        <td>Teen</td>
-                    </tr>
-                    <tr>
-                        <td>{{ user.children_infant }}</td>
-                        <td>{{ user.children_toddler }}</td>
-                        <td>{{ user.children_schoolage }}</td>
-                        <td>{{ user.children_teen }}</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
       </table>
       <br></br>
   </ul>
-
+</section>
+<section class="map">
+    <div id="map"> HELLO! </div>
     <li>
-        <a href="/login/map">
+        <a href="https://maps.googleapis.com/maps/api/geocode/json?address={{ user.user_zipcode }}&key={{API_KEY}}">
         {{ user.user_first_name }}'s Map
         </a>
     </li>
 
-<!-- 
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key={{API_KEY}}&callback=initMap">
-    </script>
+    <a href="https://maps.googleapis.com/maps/api/place/textsearch/json?query={{ user.user_activity1 }}+{{ user.user_activity2 }}+{{ user.user_activity3 }}&location=44.954445,-93.091301&radius={{ user.max_search_distance }}&key={{API_KEY}}">
+        TEST MAP
+      </a>
 
-
-    <script src=
-    "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key={{API_KEY}}">
-    </script> -->
+</section>
 {% endblock %}

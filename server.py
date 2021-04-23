@@ -3,6 +3,7 @@
 from flask import (Flask, jsonify, render_template, request, flash, session,
                    redirect)
 import requests
+import urllib
 import json
 from model import connect_to_db
 import crud
@@ -15,6 +16,7 @@ app.secret_key = "servertests"
 app.jinja_env.undefined = StrictUndefined
 
 API_KEY = os.environ['GOOGLE_MAPS_KEY']
+GEOCODE_BASE_URL: "https://maps.googleapis.com/maps/api/geocode/json"
 
 
 
@@ -63,6 +65,46 @@ def user_login():
 
     #return redirect('/')
 
+@app.route('/api/user_parks')
+def user_parks_info():
+    """JSON information about parks."""
+
+    url = f'https://maps.googleapis.com/maps/api/place/textsearch/json?query=playground&location=44.954445,-93.091301&radius=2000&key={API_KEY}'
+
+
+    response = requests.get(url) #, params=payload)
+
+    data = response.json()      # does .load() to response to make it a python dictionary
+    try:
+        coords = data['results'][0]['geometry']['location']
+    except IndexError:
+        print('Item index does not exist')
+
+    if data['status'] == "OK":
+        print(data)
+    
+    #return render_template('map_practice3.html',
+        #                  data=data, zipcode=zipcode,
+        #                 coords=coords, API_KEY=API_KEY)
+    else:
+        flash('Not a valid location. Please try again.')
+        return redirect ('/')
+
+    # userParks = [
+    #     {
+    #         "id": bear.marker_id,
+    #         "bearId": bear.bear_id,
+    #         "gender": bear.gender,
+    #         "birthYear": bear.birth_year,
+    #         "capYear": bear.cap_year,
+    #         "capLat": bear.cap_lat,
+    #         "capLong": bear.cap_long,
+    #         "collared": bear.collared.lower()
+    #     }
+    #     for bear in Bear.query.limit(50)
+    # ]
+    return jsonify(data) #(userParks)
+
 
 @app.route('/login/parks')
 def show_login_page():  #user_email):
@@ -87,6 +129,47 @@ def show_user_profile(user_email):
 
     return render_template('user_profile.html', user=user, API_KEY=API_KEY)
 
+
+@app.route('/login/map')
+def show_user_map():
+
+    if 'user_email' in session:
+        return render_template('user_map.html', API_KEY=API_KEY)
+    else:
+        return redirect('/')
+
+@app.route('/user_address.json')
+def get_user_address():
+    print(session)
+
+    if 'user_email' in session:
+        user = crud.get_user_by_email(session['user_email'])
+        address = f'{user.user_street_address} {user.user_city}, {user.user_state} {user.user_zipcode}'
+        return {'address': address}
+    else:
+        return {}
+
+
+@app.route('/user_map.json')
+def get_google_map_data():
+
+    lat = request.args.get("lat")
+    lng = request.args.get("lng")
+    user = crud.get_user_by_email(session['user_email'])
+
+    endpoint = 'https://maps.googleapis.com/maps/api/place/textsearch/json'
+
+    payload = {"query":f"{user.user_activity1} {user.user_activity2} {user.user_activity3}",
+                "location":f"{lat},{lng}",
+                "radius":user.max_search_distance,
+                "type":"park",
+                "key":API_KEY
+                }
+
+    response = requests.get(endpoint, payload)
+    print(response.url)
+    
+    return response.json()
 
 @app.route('/favorites')
 def all_favorites():
@@ -114,7 +197,7 @@ def find_parks():
     # sort = request.args.get('sort', '')
     #return redirect (f'https://maps.googleapis.com/maps/api/geocode/json?address={zipcode}&key={API_KEY}')
     url = f'https://maps.googleapis.com/maps/api/geocode/json?address={zipcode}&key={API_KEY}'
-    # payload = {'apikey': API_KEY,
+    # params = {'apikey': API_KEY,
     #         #    'keyword': keyword,
     #            'zipcode': zipcode,
     #         #    'radius': radius,
