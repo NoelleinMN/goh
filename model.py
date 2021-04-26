@@ -45,7 +45,7 @@ class Favorite_Park(db.Model):
 
     __tablename__ = 'favorite_parks'
 
-    park_API_id = db.Column(db.Integer, primary_key=True) # get from API
+    park_API_id = db.Column(db.String, primary_key=True) # get from API
     park_name = db.Column(db.String)
     park_zipcode = db.Column(db.Integer)
     park_street_address = db.Column(db.String)
@@ -64,7 +64,7 @@ class User_Favorite(db.Model):
     __tablename__ = 'user_favorites'
 
     favorite_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    park_API_id = db.Column(db.Integer, db.ForeignKey('favorite_parks.park_API_id'))
+    park_API_id = db.Column(db.String, db.ForeignKey('favorite_parks.park_API_id'))
     user_email = db.Column(db.String, db.ForeignKey('user_profiles.user_email'))
 
     favorite_park = db.relationship('Favorite_Park', backref='user_favorites')
