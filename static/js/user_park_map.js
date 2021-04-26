@@ -1,6 +1,9 @@
 "use strict";
 
 function initMap() {
+  //AJAX REQUEST TO SERVER - WHO IS THE USER; USE ROUTE IN SERVER PY TO GET USER ADDRESS
+  //GEOCODE FOR LAT LONG
+  //AJAX REQUEST FOR GOOGLE PLACES DATA THROUGH SERVER ROUTE (to avoid CORS error); server sends it back to front end, and can then make map
   const map = new google.maps.Map($('#map')[0], {
     center: {
       lat: 44,

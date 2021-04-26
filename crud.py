@@ -66,18 +66,6 @@ def get_favorite_park_by_id(park_API_id):
     return Favorite_Park.query.get(park_API_id)
 
 
-### BELOW is from movie lab, need to create for User_Favorite item in Phase 2? ###
-# def create_user_favorite(user, movie, score):
-#     """Create and return a new rating."""
-
-#     rating = Rating(user=user, movie=movie, score=score)
-
-#     db.session.add(rating)
-#     db.session.commit()
-
-#     return rating
-
-
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)
