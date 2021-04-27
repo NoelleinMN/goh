@@ -1,88 +1,230 @@
 {% extends 'base.html' %}
 
 
-
 <h1> Welcome! Please complete the form to complete your profile. </h1>
 
 {% block body %}
+<h2>Navigation</h2>
+<ul>
+  <li><a href="/favorites">View all favorite parks</a></li>
+  <li><a href="/users">View all user profiles</a></li>
+  <li><a href="/">GOH! homepage</a></li>
+</ul>
 
 <h2>Create a User Profile</h2>
-<form action="/login/parks" method="POST">
-  <p>
-    First Name <input type="text" name="user_first_name">
-  </p>
- 
-  <p>
-     Zip code <input type="text" name="user_zipcode">
-  </p>
-
-  <p>
-    <input type="submit">
-  </p>
-</form>
-
-  <form>
-    Choose your STATE
-  
-    <select name="state">
-      <option value="MN">Minnesota</option>
-      <option value="CA">California</option>
-      <option value="MI">Michigan</option>
-    </select>
-  </form>
 
 
-<form>
-    What activities do you like? Check up to three
-  
-    <input type="checkbox" name="activities" value="bike">
-    <label>Bike</label>
-  
-    <input type="checkbox" name="activities" value="run">
-    <label>Run</label>
-  
-    <input type="checkbox" name="activities" value="swim">
-    <label>Swim</label>
+<form action="/newuser" autocomplete method="POST">
+  <fieldset>
+    <legend>Account Information</legend>
+        <p>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" autofocus>
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password">
+        </p>
+  </fieldset>
+  <br><br>
+  <fieldset>
+    <legend>Basic Personal Information</legend>
+      <p>
+        <label for="first-name">First name:</label>
+        <input type="text" id="first-name" name="user_first_name">
+
+        <label for="last-name">Last name:</label>
+        <input type="text" id="last-name" name="user_last_name">
+      </p>
+        <label for="street-address">Street address:</label>
+        <input type="text" id="street-address" name="user_street_address">
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="user_city">
+      <p>
+        <label for="zipcode">Zipcode:</label>
+        <input type="text" id="zipcode" name="user_zipcode" pattern="[0-9]{5}" title="Five digit zip code">
+
+        <label for="state">State:</label>
+        <input list="state" name="user_state">
+        <datalist id="state">
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="CT">Connecticut</option>
+          <option value="DE">Delaware</option>
+          <option value="DC">District Of Columbia</option>
+          <option value="FL">Florida</option>
+          <option value="GA">Georgia</option>
+          <option value="HI">Hawaii</option>
+          <option value="ID">Idaho</option>
+          <option value="IL">Illinois</option>
+          <option value="IN">Indiana</option>
+          <option value="IA">Iowa</option>
+          <option value="KS">Kansas</option>
+          <option value="KY">Kentucky</option>
+          <option value="LA">Louisiana</option>
+          <option value="ME">Maine</option>
+          <option value="MD">Maryland</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="MS">Mississippi</option>
+          <option value="MO">Missouri</option>
+          <option value="MT">Montana</option>
+          <option value="NE">Nebraska</option>
+          <option value="NV">Nevada</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NJ">New Jersey</option>
+          <option value="NM">New Mexico</option>
+          <option value="NY">New York</option>
+          <option value="NC">North Carolina</option>
+          <option value="ND">North Dakota</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+          <option value="AS">American Samoa</option>
+          <option value="GU">Guam</option>
+          <option value="MP">Northern Mariana Islands</option>
+          <option value="PR">Puerto Rico</option>
+          <option value="UM">United States Minor Outlying Islands</option>
+          <option value="VI">Virgin Islands</option>
+        </datalist>
+  </fieldset>
+    <br><br>
+
+  <fieldset>
+    <legend>Preferences</legend>
+      <p>
+        What activities do you like? What types of places would you like to visit?
+      </p>
+      <label for="user-activities">Activity #1:</label>
+        <select id="user-activities" name="user_activity1">
+          <option value="playground">Playground</option>
+          <option value="trail" selected>Trail</option>
+          <option value="nature preserve">Nature preserve</option>
+          <option value="park">Park</option>
+          <option value="beach">Beach</option>
+          <option value="hiking area">Hiking area</option>
+          <option value="garden">Garden</option>
+          <option value="dog park">Dog park</option>
+          <option value="athletic field">Atheletic field</option>
+          <option value="tennis court">Tennis court</option>
+          <option value="basketball court">Basketball court</option>
+        </select><br>
+      <label for="user-activities">Activity #2:</label>
+        <select id="user-activities" name="user_activity2">
+          <option value="playground" selected>Playground</option>
+          <option value="trail">Trail</option>
+          <option value="nature preserve">Nature preserve</option>
+          <option value="park">Park</option>
+          <option value="beach">Beach</option>
+          <option value="hiking area">Hiking area</option>
+          <option value="garden">Garden</option>
+          <option value="dog park">Dog park</option>
+          <option value="athletic field">Atheletic field</option>
+          <option value="tennis court">Tennis court</option>
+          <option value="basketball court">Basketball court</option>
+        </select><br>
+      <label for="user-activities">Activity #3:</label>
+        <select id="user-activities" name="user_activity3">
+          <option value="playground">Playground</option>
+          <option value="trail">Trail</option>
+          <option value="nature preserve">Nature preserve</option>
+          <option value="park">Park</option>
+          <option value="beach" selected>Beach</option>
+          <option value="hiking area">Hiking area</option>
+          <option value="garden">Garden</option>
+          <option value="dog park">Dog park</option>
+          <option value="athletic field">Atheletic field</option>
+          <option value="tennis court">Tennis court</option>
+          <option value="basketball court">Basketball court</option>
+        </select>
+        
+        <br>
+        <br>
+        
+        <label for="max-search-distance">Max search distance</label><br>
+        1 mile
+        <input type="range" id="max-search-distance" name="max_search_distance" value="50">
+        20 miles
+        
+        <br>
+        <br>
+
+        <label for="amenities">Amenities #1:</label>
+          <select id="amenities" name="amenities1">
+            <option value="kiosk">Kiosk</option>
+            <option value="restroom" selected>Restroom</option>
+            <option value="seating">Seating</option>
+            <option value="shelter">Shelter</option>
+          </select><br>
+        <label for="amenities">Amenities #2:</label>
+          <select id="amenities" name="amenities2">
+            <option value="kiosk">Kiosk</option>
+            <option value="restroom">Restroom</option>
+            <option value="seating">Seating</option>
+            <option value="shelter">Shelter</option>
+          </select>
+
+        <br>
+        <br>
+   
+        <label for="pet-friendly">Pet friendly?</label>
+        <input type="radio" id="pet-friendly" name="pet_friendly" value=1>Yes</input>
+        <input type="radio" id="pet-friendly" name="pet_friendly" value=0 checked>No</input><br>
+        
+        <label for="accessibility">Accessibility needs?</label>
+        <input type="radio" id="accessibility" name="accessibility_needs" value=1>Yes</input>
+        <input type="radio" id="accessibility" name="accessibility_needs" value=0 checked>No</input><br>
+
+        <label for="family-friendly">Family friendly?</label>
+        <input type="radio" id="family-friendly" name="family_friendly" value=1>Yes</input>
+        <input type="radio" id="family-friendly" name="family_friendly" value=0 checked>No</input><br>
+
+
+        <label for="children-infant">----->Infants?</label>
+        <input type="radio" id="children-infant" name="children_infant" value=1>Yes</input>
+        <input type="radio" id="children-infant" name="children_infant" value=0 checked>No</input><br>
+
+
+        <label for="children-toddler">----->Toddlers?</label>
+        <input type="radio" id="children-toddler" name="children_toddler" value=1>Yes</input>
+        <input type="radio" id="children-toddler" name="children_toddler" value=0 checked>No</input><br>
+
+
+        <label for="children-schoolage">----->Schoolage Kids?</label>
+        <input type="radio" id="children-schoolage" name="children_schoolage" value=1>Yes</input>
+        <input type="radio" id="children-schoolage" name="children_schoolage" value=0 checked>No</input><br>
+
+        <label for="children-teen">----->Teenagers?</label>
+        <input type="radio" id="children-teen" name="children_teen" value=1>Yes</input>
+        <input type="radio" id="children-teen" name="children_teen" value=0 checked>No</input><br>
+  </fieldset>
+
+    <br>
+    <label for="favcolor">BONUS FUN!: Select your favorite color (for map customization)</label>
+    <input type="color" id="favcolor" name="favcolor" value="#ff8888">
     
-    <input type="checkbox" name="activities" value="sunbathing">
-    <label>Sunbathing</label>
-   
-    <input type="checkbox" name="activities" value="walk">
-    <label>Walk</label>
+    <br>
+    <p>
+      <input type="submit" value="Create Account">
+    </p>
   </form>
-
-
-
-
-<form>
-    <input type="submit">
-  </form>
-   
-  <form>
-    <button type="submit">Log In</button>
-  </form>
-
-
-
-
-
-  user_zipcode = db.Column(db.Integer, nullable=False)
-  user_street_address = db.Column(db.String)
-  user_city = db.Column(db.String)
-  user_state = db.Column(db.String) # how to limit to two character abbreviation?
-  user_activity1 = db.Column(db.String)
-  user_activity2 = db.Column(db.String)
-  user_activity3 = db.Column(db.String)
-  max_search_distance = db.Column(db.Integer)
-  pet_friendly = db.Column(db.Boolean, default=False) 
-  family_friendly = db.Column(db.Boolean, default=False)
-  accessibility_needs = db.Column(db.Boolean, default=False)
-  amenities1 = db.Column(db.String)
-  amenities2 = db.Column(db.String)
-  children_infant = db.Column(db.Boolean, default=False)
-  children_toddler = db.Column(db.Boolean, default=False)
-  children_schoolage = db.Column(db.Boolean, default=False)
-  children_teen = db.Column(db.Boolean, default=False)
-
 
 {% endblock %}
