@@ -60,24 +60,26 @@ def user_login():
         return redirect ('/')
 
 
-@app.route('/login/parks')
-def show_login_page():  #user_email):
-    """Show page for specific user with parks."""
+@app.route("/logout")
+def user_logout():
+    """Log out the current user and delete session information"""
 
-    user = crud.get_user_by_email(session['user_email'])
- 
-    if user:
-        # print(session)
-        return render_template('user_parks.html', user=user, API_KEY=API_KEY)
+    try:
+        del session['user_email']
+        del session['user_first_name']
+    except KeyError:
+        pass
+    flash("You are logged out.")
+    return redirect("/")
 
 
-@app.route('/login/<user_email>')
-def show_user_profile(user_email):
-    """Show profile of a specific user by email."""
+# @app.route('/login/favorites')  # throws error of assertionError conflict with all_favorites function (endpoint)
+# def all_favorites():
+#     """View all favorited parks."""
+#     pass
+    # favorites = crud.get_favorite_parks()
 
-    user = crud.get_user_by_email(user_email)
-
-    return render_template('user_profile.html', user=user, API_KEY=API_KEY)
+    # return render_template('all_favorited_parks.html', favorites=favorites)
 
 
 @app.route('/login/map')
@@ -122,6 +124,7 @@ def get_google_map_data():
     
     return response.json()
 
+
 @app.route('/favorites')
 def all_favorites():
     """View all favorited parks."""
@@ -129,12 +132,6 @@ def all_favorites():
     favorites = crud.get_favorite_parks()
 
     return render_template('all_favorited_parks.html', favorites=favorites)
-
-@app.route('/map')
-def map_search():
-    """View local park maps."""
-
-    return render_template('map_practice3.html', API_KEY=API_KEY)
 
 
 @app.route('/parks/search')
