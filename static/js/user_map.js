@@ -1,10 +1,19 @@
+function confirmFavAdded(results) {
+    alert(results);
+};
+
 
 $("#map").on("click", ".favorite-button", (evt) => {
     console.log("nice click");
     console.log(evt.target);
     const button = $(evt.target);
-    console.log(button.attr("id"));  //check jQuery notes
+    console.log(button.attr("id")); //check jQuery notes
+    // const favParkId = button.attr("id");
     // make ajax request to server (need new route to receive args, make endpoint request, and crud function to add to fav parks table - post??, alert to show added)
+
+    const formInputs = {"favParkId":button.attr("id")};
+    console.log(formInputs);
+    $.post("/api/add_favorite", formInputs, confirmFavAdded);
 });
 
 

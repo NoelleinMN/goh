@@ -81,6 +81,36 @@ def user_logout():
 
     # return render_template('all_favorited_parks.html', favorites=favorites)
 
+@app.route('/api/add_favorite', methods=["POST"])
+def add_favorite():
+    
+    fav_park_id = request.form.get("favParkId")
+    user_email = session["user_email"]
+    # fields = "address component"
+
+    endpoint = "https://maps.googleapis.com/maps/api/place/details/json?"
+
+    payload = {"place_id": fav_park_id,
+                "key":API_KEY,
+                "fields":"address_component,formatted_address,name"   #,geometry,icon,photo"
+                }
+
+    response = requests.get(endpoint, payload)
+    data = response.json()
+    print(data)
+    park_street_address = data['result']['address_components'][0]['long_name'] + " " + data['result']['address_components'][1]['long_name'] #street address
+    park_city = data['result']['address_components'][3]['long_name'] #city
+    park_state = data['result']['address_components'][5]['short_name'] #state 2 ltr
+    park_zipcode = data['result']['address_components'][7]['long_name'] #postal code
+    park_name = data['result']['name'] # park name
+
+    print(f"{park_street_address}, {park_city}, {park_state}, {park_zipcode}, {park_name}")
+    # favorite_park = crud.create_favorite_park(fav_park_id, park_name, park_zipcode, park_street_address, park_city, park_state)
+
+#use crud function to make user favorite and also add to user_fav database
+
+    return "Saved to favorites"
+
 
 @app.route('/login/map')
 def show_user_map():

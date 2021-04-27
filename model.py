@@ -47,10 +47,7 @@ class Favorite_Park(db.Model):
 
     park_API_id = db.Column(db.String, primary_key=True) # get from API
     park_name = db.Column(db.String)
-    park_zipcode = db.Column(db.Integer)
-    park_street_address = db.Column(db.String)
-    park_city = db.Column(db.String)
-    park_state = db.Column(db.String)
+    park_address = db.Column(db.String)
 
     # user_favorites: an association table of User_Favorites with user_email and park_API_id
 
