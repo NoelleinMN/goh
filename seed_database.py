@@ -36,25 +36,25 @@ def example_data():
 
     # Add sample users
     quanisha = crud.create_user(user_email='quanisha@gmail.com', user_password='test123', user_first_name='Quanisha', 
-                 user_zipcode=55113, user_city='St Paul', user_activity1='swim', user_activity2='bike',
-                 family_friendly=1, children_toddler=1, user_last_name='Anderson', user_street_address='13 Albert St',
-                 user_state='MN', user_activity3='walk', max_search_distance=5000, pet_friendly=1, accessibility_needs=1,
+                 user_zipcode=48152, user_city='Livonia', user_activity1='playground', user_activity2='bike',
+                 family_friendly=1, children_toddler=1, user_last_name='Anderson', user_street_address='38701 W Seven Mile Rd',
+                 user_state='MI', user_activity3='trail', max_search_distance=5000, pet_friendly=1, accessibility_needs=1,
                  amenities1='restroom', amenities2='shelter', children_teen=1, children_schoolage=0, children_infant=1)
     gabriella = crud.create_user(user_email='gabriella@gmail.com', user_password='fake123', user_first_name='Gabriella', 
-                 user_zipcode=91140, user_city='Sacramento', user_state='CA', user_last_name='Best', user_activity1='run', 
-                 user_activity2='bike', user_activity3='sunbathing', max_search_distance=1000, family_friendly=0,
+                 user_zipcode=95826, user_city='Sacramento', user_state='CA', user_last_name='Best', user_activity1='dog park', 
+                 user_activity2='beach', user_activity3='run', max_search_distance=1000, family_friendly=0,
                  pet_friendly=1, children_infant=1, children_schoolage=1, children_teen=0, children_toddler=0,
-                 user_street_address='3442 Woodlane Park', accessibility_needs=0, amenities2='restroom', amenities1='kiosk')
+                 user_street_address='46 Bicentennial Cir', accessibility_needs=0, amenities2='restroom', amenities1='kiosk')
     nicole = crud.create_user(user_email='nicole@gmail.com', user_password='pass123', user_first_name='Nicole', 
-                user_last_name='Driver', user_street_address='123 St Albans', user_zipcode=55113, 
-                user_city='St Paul', user_state='MN', user_activity1='swim', user_activity2='bike',
-                user_activity3='walk', max_search_distance=2500, pet_friendly=1, accessibility_needs=1,
-                family_friendly=1, amenities1='restroom', amenities2='shelter', children_teen=1, children_toddler=1, 
-                children_schoolage=0, children_infant=1)
+                user_last_name='Driver', user_street_address='2755 Lexington Ave N', user_zipcode=55113, 
+                user_city='Roseville', user_state='MN', user_activity1='beach', user_activity2='bike',
+                user_activity3='hike', max_search_distance=2500, pet_friendly=1, accessibility_needs=1,
+                family_friendly=0, amenities1='restroom', amenities2='shelter', children_teen=1, children_toddler=0, 
+                children_schoolage=0, children_infant=0)
     queentesa = crud.create_user(user_email='queentesa@gmail.com', user_password='login123', user_first_name='Queentesa', 
-                user_zipcode=55117, user_city='Roseville', user_activity1='walk', pet_friendly=1, user_state='MN',
+                user_zipcode=55130, user_city='St Paul', user_activity1='nature preserve', pet_friendly=1, user_state='MN',
                 children_toddler=1, amenities1='restroom', amenities2='shelter', user_last_name='Strong', children_teen=0,
-                user_street_address='996 Montana Ave', user_activity2='sunbathing', user_activity3='bike', children_infant=1,
+                user_street_address='1521 Edgerton St', user_activity2='bike', user_activity3='hike', children_infant=1,
                 children_schoolage=0, max_search_distance=3000, family_friendly=1, accessibility_needs=0)
 
 
