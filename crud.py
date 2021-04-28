@@ -41,12 +41,10 @@ def get_user_by_zipcode(user_zipcode):
     return User.query.filter(User.user_zipcode == user_zipcode).all()
 
 
-def create_favorite_park(park_API_id, park_name, park_zipcode, park_street_address, park_city, park_state):
+def create_favorite_park(park_API_id, park_name, park_address):
     """Create and return a newly favorited park."""
 
-    favorite_park = Favorite_Park(park_API_id=park_API_id, park_name=park_name,
-                    park_zipcode=park_zipcode, park_street_address=park_street_address,
-                    park_city=park_city, park_state=park_state)
+    favorite_park = Favorite_Park(park_API_id=park_API_id, park_name=park_name, park_address=park_address)
 
     db.session.add(favorite_park)
     db.session.commit()

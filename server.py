@@ -46,7 +46,7 @@ def user_login():
 
     if user:
         if password == user.user_password:
-            session['user_first_name'] = user.user_first_name    # not working on html page?
+            session['user_first_name'] = user.user_first_name
             session['user_email'] = user.user_email
             # print(user.user_first_name)
             # print(user.user_email)
@@ -86,28 +86,24 @@ def add_favorite():
     
     fav_park_id = request.form.get("favParkId")
     user_email = session["user_email"]
-    # fields = "address component"
 
     endpoint = "https://maps.googleapis.com/maps/api/place/details/json?"
 
     payload = {"place_id": fav_park_id,
                 "key":API_KEY,
-                "fields":"address_component,formatted_address,name"   #,geometry,icon,photo"
+                "fields":"formatted_address,name"   #,geometry,icon,photo"
                 }
 
     response = requests.get(endpoint, payload)
     data = response.json()
     print(data)
-    park_street_address = data['result']['address_components'][0]['long_name'] + " " + data['result']['address_components'][1]['long_name'] #street address
-    park_city = data['result']['address_components'][3]['long_name'] #city
-    park_state = data['result']['address_components'][5]['short_name'] #state 2 ltr
-    park_zipcode = data['result']['address_components'][7]['long_name'] #postal code
+    park_address = data['result']['formatted_address'] #street address
     park_name = data['result']['name'] # park name
 
-    print(f"{park_street_address}, {park_city}, {park_state}, {park_zipcode}, {park_name}")
-    # favorite_park = crud.create_favorite_park(fav_park_id, park_name, park_zipcode, park_street_address, park_city, park_state)
+    print(f"{park_address}, {park_name}")
+    favorite_park = crud.create_favorite_park(fav_park_id, park_name, park_address)
 
-#use crud function to make user favorite and also add to user_fav database
+    #use crud function to make user favorite and also add to user_fav database
 
     return "Saved to favorites"
 
