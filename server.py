@@ -189,22 +189,48 @@ def find_parks():
         return redirect ('/')
 
 
-@app.route('/newuser') #, methods=['POST'])
+@app.route('/newuser', methods=['GET','POST'])
 def create_user_profile():
     """Create a new user profile."""
 
-    # email = request.form.get('email')
-    # password = request.form.get('password')
+    if request.method == 'POST':
+        user_email = request.form.get('email')
+        user_password = request.form.get('password')
+        user_first_name = request.form.get('user_first_name')
+        user_last_name = request.form.get('user_last_name')
+        user_street_address = request.form.get('user_street_address')
+        user_city = request.form.get('user_city')
+        user_zipcode = int(request.form.get('user_zipcode'))
+        user_state = request.form.get('user_state')
+        user_activity1 = request.form.get('user_activity1')
+        user_activity2 = request.form.get('user_activity2')
+        user_activity3 = request.form.get('user_activity3')
+        max_search_distance = int(request.form.get('max_search_distance'))
+        amenities1 = request.form.get('amenities1')
+        amenities2 = request.form.get('amenities2')
+        pet_friendly = bool(int(request.form.get('pet_friendly')))
+        accessibility_needs = bool(int(request.form.get('accessibility_needs')))
+        family_friendly = bool(int(request.form.get('family_friendly')))
+        children_infant = bool(int(request.form.get('children_infant')))
+        children_toddler = bool(int(request.form.get('children_toddler')))
+        children_schoolage = bool(int(request.form.get('children_schoolage')))
+        children_teen = bool(int(request.form.get('children_teen')))
+        
+        user = crud.get_user_by_email(user_email)
+        if user:
+            flash('Account already created with that email. Please login or try another email.')
+            return redirect('/')
 
-    # user = crud.get_user_by_email(email)
-    # if user:
-    #     flash('Cannot create an account with that email. Try again.')
-    # else:
-    #     crud.create_user(email, password)
-    #     flash('Account created! Please log in.')
-
-    return render_template('setup_new_user.html')
-    # return redirect('/')
+        else:
+            user = crud.create_user(user_email, user_password, user_first_name, user_last_name, user_zipcode,
+                                    user_street_address, user_city, user_state, user_activity1, user_activity2,
+                                    user_activity3, max_search_distance, pet_friendly, family_friendly,
+                                    accessibility_needs, amenities1, amenities2, children_infant, children_toddler, children_schoolage, children_teen)
+            flash('Account created! Please log in.')
+            return redirect('/')
+    
+    elif request.method == 'GET':
+        return render_template('setup_new_user.html')
 
 
 
