@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}All Parks{% endblock %}
+
+{% block body %}
+  <h1>Your Parks</h1>
+
+  <ul>
+    {% for fav in favorites %}
+
+      <b>{{ fav.favorite_park.park_name }}</b>
+      
+      <br>Park # {{ fav.favorite_park.park_API_id }}</br>
+      {{ fav.favorite_park.park_address }}
+      <br></br>
+    
+    <iframe
+    width="550"
+    height="350"
+    frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?key={{API_KEY}}&q=place_id:{{fav.favorite_park.park_API_id}}&zoom=12&maptype=satellite" allowfullscreen>
+    </iframe>
+
+    <li><a href="/">GOH! homepage</a></li>
+      
+
+    {% endfor %}
+
+
+
+  </ul>
+{% endblock %}

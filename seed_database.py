@@ -23,12 +23,12 @@ def example_data():
     """Create some sample data."""
 
     # Add sample parks
-    como = crud.create_favorite_park(park_API_id='JK120PARK', park_name='Como Lake Park', 
-            park_address='12 Como Ave St Paul, MN 55117')
-    north_dale = crud.create_favorite_park(park_API_id='MN317PARK', park_name='North Dale Rec Center', 
-            park_address='233 Cottage St St Paul, MN 55114')
-    lexington = crud.create_favorite_park(park_API_id='YS908PARK', park_name='Lexington Park', 
-            park_address='1906 Lexington Ave N Roseville, MN 55113')
+    como = crud.create_favorite_park(park_API_id='ChIJtWanuxYrs1IRdgm71hm6wy4', park_name='Como Lake Regional Park', 
+            park_address='1199 Midway Pkwy, St Paul, MN 55118')
+    north_dale = crud.create_favorite_park(park_API_id='ChIJl718Re4qs1IRCZ-JnkSeZUI', park_name='North Dale Recreation Center', 
+            park_address='1414 St Albans St N, St Paul, MN 55117')
+    lexington = crud.create_favorite_park(park_API_id='ChIJ-Wo3LLIrs1IRAC8UmO2kDQM', park_name='Lexington Park', 
+            park_address='2131 Lexington Ave N, Roseville, MN 55113')
 
     # Add sample parks and user key that have been favorited by a user (Association table)
     # fav1 = User_Favorite() # what is needed to create this data since it is PK and FK only?

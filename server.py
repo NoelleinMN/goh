@@ -73,13 +73,15 @@ def user_logout():
     return redirect("/")
 
 
-# @app.route('/login/favorites')  # throws error of assertionError conflict with all_favorites function (endpoint)
-# def all_favorites():
-#     """View all favorited parks."""
-#     pass
-    # favorites = crud.get_favorite_parks()
+@app.route('/login/user_favorites')
+def user_favorites():
+    """View all favorited parks."""
 
-    # return render_template('all_favorited_parks.html', favorites=favorites)
+    user_email = session['user_email']
+    favorites = crud.get_user_fav(user_email)
+
+    return render_template('user_favorite_parks.html', favorites=favorites, API_KEY=API_KEY)
+
 
 @app.route('/api/add_favorite', methods=["POST"])
 def add_favorite():
@@ -91,7 +93,7 @@ def add_favorite():
 
     payload = {"place_id": fav_park_id,
                 "key":API_KEY,
-                "fields":"formatted_address,name"   #,geometry,icon,photo"
+                "fields":"formatted_address,name,photos"   #,geometry,icon,photo"
                 }
 
     response = requests.get(endpoint, payload)
@@ -102,8 +104,7 @@ def add_favorite():
 
     print(f"{park_address}, {park_name}")
     favorite_park = crud.create_favorite_park(fav_park_id, park_name, park_address)
-
-    #use crud function to make user favorite and also add to user_fav database
+    user_fav_park = crud.create_user_fav(fav_park_id, user_email)
 
     return "Saved to favorites"
 
@@ -114,6 +115,7 @@ def show_user_map():
     if 'user_email' in session:
         return render_template('user_map.html', API_KEY=API_KEY)
     else:
+        flash("Please sign in to your account")
         return redirect('/')
 
 
@@ -151,13 +153,13 @@ def get_google_map_data():
     return response.json()
 
 
-@app.route('/favorites')
+@app.route('/all_favorites')
 def all_favorites():
     """View all favorited parks."""
 
     favorites = crud.get_favorite_parks()
 
-    return render_template('all_favorited_parks.html', favorites=favorites)
+    return render_template('all_favorited_parks.html', favorites=favorites, API_KEY=API_KEY)
 
 
 @app.route('/parks/search')

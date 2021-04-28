@@ -52,6 +52,23 @@ def create_favorite_park(park_API_id, park_name, park_address):
     return favorite_park
 
 
+def create_user_fav(park_API_id, user_email):
+    """Create and return a newly favorited park."""
+
+    user_fav_park = User_Favorite(park_API_id=park_API_id, user_email=user_email)
+
+    db.session.add(user_fav_park)
+    db.session.commit()
+
+    return user_fav_park
+
+
+def get_user_fav(user_email):
+
+    favorites = User_Favorite.query.options(db.joinedload('favorite_park')).filter(User_Favorite.user_email == user_email).all()
+
+    return favorites
+
 def get_favorite_parks():
     """Return all favorite parks."""
 
