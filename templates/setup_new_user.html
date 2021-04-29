@@ -6,9 +6,7 @@
 {% block body %}
 <h2>Navigation</h2>
 <ul>
-  <li><a href="/favorites">View all favorite parks</a></li>
-  <li><a href="/users">View all user profiles</a></li>
-  <li><a href="/">GOH! homepage</a></li>
+  <li><a href="/favorites">View top parks</a></li>
 </ul>
 
 <h2>Create a User Profile</h2>
@@ -159,10 +157,15 @@
         <br>
         <br>
         
-        <label for="max-search-distance">Max search distance</label><br>
-        1 mile
-        <input type="range" id="max-search-distance" name="max_search_distance" value="50">
-        20 miles
+        <div class="Box">
+          <div width="100%,240px" display="grid" class="Box">
+            <label for="max-search-distance">Max search distance</label><br>
+              1 mile
+            <input type="range" aria-label="zoom" min="1" max="100" step="1"
+              class="icon-viewer" id="max-search-distance" name="max_search_distance" value="50">
+            <span display="flex" class="Box">100 miles</span>
+          </div>
+        </div>
         
         <br>
         <br>
