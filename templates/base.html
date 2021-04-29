@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/css/bootstrap-styles.css">
   <script
       src="https://code.jquery.com/jquery-3.4.1.js"
       integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -12,27 +13,38 @@
     <script type="text/javascript">
       function getQuote() {
         // Arrays
-        var quotes = new Array(4);
-        var sources = new Array(4);
+        var quotes = new Array(6);
+        var sources = new Array(6);
 
         // Quotes
-        quotes[0] = "Optimism is the faith that leads to achievement.";
-        sources[0] = "Helen Keller";
+        quotes[0] = "Anywhere is 'within walking distance.' Just go.";
+        sources[0] = "Unknown";
 
         quotes[1] = "If you don't like the road you're walking, " +
         "start paving another one.";
         sources[1] = "Dolly Parton";
 
-        quotes[2] = "The most difficult thing is the decision to act, " +
-        "the rest is merely tenacity.";
-        sources[2] = "Amelia Earhart";
+        quotes[2] = "You’re off to great places, today is your day. " +
+        "Your mountain is waiting, so get on your way.";
+        sources[2] = "Dr. Seuss";
 
-        quotes[3] = "What's another word for thesaurus?";
-        sources[3] = "Steven Wright";
+        quotes[3] = "Look deep into nature and you will understand everything better.";
+        sources[3] = "Albert Einstein";
+
+        quotes[4] = "Walk more; worry less.";
+        sources[4] = "Unknown";
+
+        quotes[5] = "Bug spray: nature's perfume.";
+        sources[5] = "Everyone";
+
+        quotes[5] = "Forget not that the earth delights to feel your bare feet " + 
+        " and the winds long to play with your hair.";
+        sources[5] = "Kahlil Gibran";
+        
 
         inspiration = Math.floor(Math.random() * quotes.length);
 
-        document.write("<h3 style='background-color: #e3f2fd; text-align:center'>\"");
+        document.write("<h3 style='background-color: #92cbf5; text-align:center'>\"");
         document.write(quotes[inspiration] + "\"");
         document.write("<em>- " + sources[inspiration] + "</em>");
         document.write("</h3>");
@@ -51,7 +63,7 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #92cbf5;">
     <a class="navbar-brand" href="/">
       <img src="/static/images/white-marker.png" width="30" height="30" class="d-inline-block align-top" alt="">
       GOH!</a>
