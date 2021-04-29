@@ -51,7 +51,7 @@ def user_login():
             # print(user.user_first_name)
             # print(user.user_email)
             # print(session)
-            return render_template('user_profile.html', user=user, API_KEY=API_KEY)           # correct this to go to a user's park and profile page
+            return redirect('/login/map')    
         else:
             flash('Email and password do not match. Try again.')
             return redirect ('/')
@@ -59,6 +59,16 @@ def user_login():
         flash('No user with that email. Please create a new profile.')
         return redirect ('/')
 
+@app.route('/login/profile')
+def view_profile():
+    """View user profile once logged in."""
+
+    if 'user_email' in session:
+        user = crud.get_user_by_email(session['user_email'])
+        return render_template('user_profile.html', user=user, API_KEY=API_KEY)
+    else:
+        flash("Please sign in to your account")
+        return redirect('/')
 
 @app.route("/logout")
 def user_logout():

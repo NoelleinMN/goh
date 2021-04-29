@@ -9,8 +9,8 @@ $("#map").on("click", ".favorite-button", (evt) => {
     const button = $(evt.target);
     console.log(button.attr("id")); //check jQuery notes
     // const favParkId = button.attr("id");
-    // make ajax request to server (need new route to receive args, make endpoint request, and crud function to add to fav parks table - post??, alert to show added)
-
+    
+    // ajax request to server and success function alert to show added)
     const formInputs = {"favParkId":button.attr("id")};
     console.log(formInputs);
     $.post("/api/add_favorite", formInputs, confirmFavAdded);
@@ -48,8 +48,12 @@ function initMap() {
                             }
                         );
                         const placeInfoContent = (`
-                        <h1>${place.name}</h1>
+                        <h2>${place.name}</h2>
                         <p>${place.formatted_address}</p>
+                        <p>${place.rating}</p>
+                        <p>${place.types[0]}</p>
+                        <li><a href="https://duckduckgo.com/?q=\\${place.name}${place.formatted_address}" target=_blank>Learn More</a></li>
+                        
                         <button class="favorite-button" id="${place.place_id}">Save to favorites</button>
                         `);
                         placeMarker.addListener('click', ()=>{

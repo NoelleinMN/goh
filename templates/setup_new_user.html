@@ -17,10 +17,10 @@
     <legend>Account Information</legend>
         <p>
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email" autofocus>
+          <input type="email" id="email" name="email" autofocus required>
 
           <label for="password">Password:</label>
-          <input type="password" id="password" name="password">
+          <input type="password" id="password" name="password" required>
         </p>
   </fieldset>
   <br><br>
@@ -28,22 +28,22 @@
     <legend>Basic Personal Information</legend>
       <p>
         <label for="first-name">First name:</label>
-        <input type="text" id="first-name" name="user_first_name">
+        <input type="text" id="first-name" name="user_first_name" required>
 
         <label for="last-name">Last name:</label>
-        <input type="text" id="last-name" name="user_last_name">
+        <input type="text" id="last-name" name="user_last_name" required>
       </p>
         <label for="street-address">Street address:</label>
-        <input type="text" id="street-address" name="user_street_address">
+        <input type="text" id="street-address" name="user_street_address" required>
 
         <label for="city">City:</label>
-        <input type="text" id="city" name="user_city">
+        <input type="text" id="city" name="user_city" required>
       <p>
         <label for="zipcode">Zipcode:</label>
-        <input type="text" id="zipcode" name="user_zipcode" pattern="[0-9]{5}" title="Five digit zip code">
+        <input type="text" id="zipcode" name="user_zipcode" pattern="[0-9]{5}" title="Five digit zip code" required>
 
         <label for="state">State:</label>
-        <input list="state" name="user_state">
+        <input list="state" name="user_state" required>
         <datalist id="state">
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
