@@ -1,0 +1,49 @@
+/*   Sitewide  */
+
+.carousel {
+	width:640px;
+	height:360px;
+  }
+
+.navbar {
+	background-color: #92cbf5;
+	color: black;
+	border-radius: 0px;
+}
+
+#goh-logo, #goh-logo:hover, .navbar-dark .navbar-brand {
+	color: #0f3b07;
+}
+
+.navbar-nav>li>a, .navbar-dark .navbar-nav .nav-link {
+	color: black;
+}
+
+section {
+	margin-top: 50px;
+}
+
+
+/*  First row  */
+
+#hero	{
+	height: 400px;
+}
+
+#splash {
+	margin-bottom: 25px;
+	font-size: 18px;
+}
+
+
+/* Features Row */
+
+.feature {
+	text-align: center;
+}
+
+/* Further Study */
+
+#modalLabel {
+	color: black;
+}
