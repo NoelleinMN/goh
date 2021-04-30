@@ -17,6 +17,9 @@
           <img src="static/images/pier-lake.webp" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
+          <img src="static/images/wooded_path.webp" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
           <img src="static/images/beach-walk.webp" class="d-block w-100" alt="...">
         </div>
       </div>
@@ -37,14 +40,15 @@
     </div>
   </div>
 
-  <!-- <div class="container-fluid">
+  {#<!-- <div class="container-fluid">
       <div class="row align-items-center">
         <section class="col-6 mx-auto" id="splash">
           <img src="static/images/bridge.webp" class="img-fluid center-block" alt="Image of park" id="hero">
           <h2>There is no such thing as bad weather only bad clothing.<h2>
         </section>
     </div>
-  </div> -->
+  </div> -->#}
+
   <div class="container-fluid"></div>
   <div class="row align-items-right">
   <section class="col-6 mx-auto" id="login">
@@ -54,7 +58,7 @@
       <form action="/login" autocomplete="on" method="POST">
         <p>
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email" autofocus>
+          <input type="email" id="email" name="email">
           <br><br>
           <label for="password">Password:</label>
           <input type="password" id="password" name="password">
@@ -65,15 +69,16 @@
         </p>
       </form>
   </fieldset>
+  </section>
 </div>
 
 
-  <!-- <h2>Search without logging in</h2>
+  {#<!-- <h2>Search without logging in</h2>
   <form action="/parks/search" autocomplete="on" method="GET">
     <p>
       <label for="park-search">Address (or zip or city, state)</label>
       <input type="search" id="park-search" name="zipcode">
       <input type="submit" value="Search for Parks">
-  </form> -->
+  </form> -->#}
 
 {% endblock %}

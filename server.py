@@ -73,7 +73,7 @@ def view_profile():
         user = crud.get_user_by_email(session['user_email'])
         return render_template('user_profile.html', user=user, API_KEY=API_KEY)
     else:
-        flash("Please sign in to your account")
+        flash('Please sign in to your account.')
         return redirect('/')
 
 @app.route("/logout")
@@ -99,7 +99,7 @@ def user_favorites():
         favorites = crud.get_user_fav(user_email)
         return render_template('user_favorite_parks.html', user=user, favorites=favorites, API_KEY=API_KEY)
     else:
-        flash("Please sign in to your account")
+        flash("Please sign in to your account.")
         return redirect('/')
 
 
@@ -109,6 +109,19 @@ def add_favorite():
     fav_park_id = request.form.get("favParkId")
     user_email = session["user_email"]
 
+    data = get_fav_data_api(fav_park_id)
+
+    park_address = data['result']['formatted_address'] #street address
+    park_name = data['result']['name'] # park name
+
+    print(f"{park_address}, {park_name}")
+    favorite_park = crud.create_favorite_park(fav_park_id, park_name, park_address)
+    user_fav_park = crud.create_user_fav(fav_park_id, user_email)
+
+    return "Saved to favorites"   
+
+def get_fav_data_api(fav_park_id):
+    
     endpoint = "https://maps.googleapis.com/maps/api/place/details/json?"
 
     payload = {"place_id": fav_park_id,
@@ -119,23 +132,19 @@ def add_favorite():
     response = requests.get(endpoint, payload)
     data = response.json()
     print(data)
-    park_address = data['result']['formatted_address'] #street address
-    park_name = data['result']['name'] # park name
 
-    print(f"{park_address}, {park_name}")
-    favorite_park = crud.create_favorite_park(fav_park_id, park_name, park_address)
-    user_fav_park = crud.create_user_fav(fav_park_id, user_email)
+    return data
 
-    return "Saved to favorites"
 
 
 @app.route('/login/map')
 def show_user_map():
 
     if 'user_email' in session:
-        return render_template('user_map.html', API_KEY=API_KEY)
+        user = crud.get_user_by_email(session['user_email'])
+        return render_template('user_map.html', user=user, API_KEY=API_KEY)
     else:
-        flash("Please sign in to your account")
+        flash("Please sign in to your account.")
         return redirect('/')
 
 

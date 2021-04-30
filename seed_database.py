@@ -10,13 +10,6 @@ import model
 import server
 
 
-os.system('dropdb goh')
-os.system('createdb goh')
-
-model.connect_to_db(server.app)
-model.db.create_all()
-
-
 '''Create sample data for use with GOH! project database.'''
 
 def example_data():
@@ -62,4 +55,14 @@ def example_data():
     model.db.session.commit()
 
 
-example_data()
+
+
+
+if __name__ == "__main__":
+        os.system('dropdb goh')
+        os.system('createdb goh')
+
+        model.connect_to_db(server.app)
+        model.db.create_all()
+
+        example_data()

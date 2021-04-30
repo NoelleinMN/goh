@@ -2,7 +2,7 @@
 {% block title %}Your Favorite Parks{% endblock %}
 
 {% block body %}
-  <h1>Your Parks</h1>
+<h1>{{ user.user_first_name }}'s Favorite Parks</h1>
 
   <ul>
     {% for fav in favorites %}
