@@ -199,7 +199,7 @@ def find_parks():
     
     if data['status'] == "OK":
         print(data)
-        return render_template('map_practice3.html',
+        return render_template('map_search_by_zip.html',
                            data=data, zipcode=zipcode,
                            coords=coords, API_KEY=API_KEY)
     else:
