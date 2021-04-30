@@ -2,3 +2,6 @@
 background-info/
 __pycache__/
 secrets.sh
+.coverage
+geckodriver.log
+htmlcov/

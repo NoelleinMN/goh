@@ -30,9 +30,9 @@ def homepage():
 def all_users():
     """View all user profiles."""
 
-    users = crud.get_users()
+    users = crud.get_users()                                #pragma: no cover
 
-    return render_template('all_users.html', users=users)
+    return render_template('all_users.html', users=users)   #pragma: no cover
 
 
 @app.route('/login', methods=['POST'])
