@@ -1,9 +1,29 @@
 /*   Sitewide  */
 
+div.c-wrapper{
+    margin-top: 50px;
+	margin-left: 500px;
+	width: 80%;
+    margin: auto;
+}
+
+.carousel-inner > .item > img, 
+.carousel-inner > .item > a > img{
+/* width: 100%; */
+margin: auto;
+}
+
 .carousel {
-	width:640px;
-	height:360px;
+	width:840px;
+	height:560px;
   }
+
+div.q-wrapper{
+    margin-top: 50px;
+	margin-left: 115px;
+	width: 75%;
+
+}
 
 .navbar {
 	background-color: #92cbf5;
@@ -35,14 +55,11 @@ section {
 	font-size: 18px;
 }
 
-
 /* Features Row */
 
 .feature {
 	text-align: center;
 }
-
-/* Further Study */
 
 #modalLabel {
 	color: black;
