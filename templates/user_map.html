@@ -1,23 +1,24 @@
 {% extends 'base.html' %}
-{% block title %}Your Map{% endblock %}
+{% block title %}GOH! GOH!{% endblock %}
+
+{% block body %}
+
+  <h1>Your Map</h1>
 
 
-  {% block body %}
+  <h2>Explore parks and add to favorites</h2>
+    <ul>
+      <li><a href="/login/user_favorites">View your favorite parks</a></li>
+      <li><a href="/logout">Log out of your account</a></li>
+    </ul>
 
-
-<h2>Navigation</h2>
-<ul>
-  <li><a href="/login/user_favorites">View your favorite parks</a></li>
-  <li><a href="/logout">Log out of your account</a></li>
-</ul>
-
-<div id="map" style="width: 600px; height: 400px;"></div>
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<script src="/static/js/user_map.js"></script>
-<script
-async defer
-src="https://maps.googleapis.com/maps/api/js?key={{API_KEY}}&callback=initMap">
-</script>
+  <div id="map" style="width: 1000px; height: 700px;"></div>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script src="/static/js/user_map.js"></script>
+  <script
+  async defer
+  src="https://maps.googleapis.com/maps/api/js?key={{API_KEY}}&callback=initMap">
+  </script>
 
 
 

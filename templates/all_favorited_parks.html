@@ -4,28 +4,22 @@
 {% block body %}
   <h1>Top Parks</h1>
 
-  <ul>
-    {% for park in favorites %}
-      <li>
-          
-      </li>
-         <b>{{ park.park_name }}</b>
-        
-        <br>Park # {{ park.park_API_id }}</br>
-        {{ park.park_address }}
-        <br></br>
-       
-        <iframe
-        width="550"
-        height="350"
-        frameborder="0" style="border:0"
-        src="https://www.google.com/maps/embed/v1/place?key={{API_KEY}}&q=place_id:{{park.park_API_id}}&zoom=12&maptype=satellite" allowfullscreen>
-        </iframe>
+  {% for park in favorites %}
 
-    {% endfor %}
+    <b>{{ park.park_name }}</b>
+    <br> 
+    Park # {{ park.park_API_id }}
+    <br>
+    {{ park.park_address }}
+    <br>
+    <iframe
+    width="550"
+    height="350"
+    frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?key={{API_KEY}}&q=place_id:{{park.park_API_id}}&zoom=12&maptype=satellite" allowfullscreen>
+    </iframe>
+    <br>
 
+  {% endfor %}
 
-    <li><a href="/">GOH! homepage</a></li>
-
-  </ul>
 {% endblock %}

@@ -26,6 +26,12 @@ def homepage():
     return render_template('homepage.html', API_KEY=API_KEY)
 
 
+@app.route('/about')
+def view_about():
+    """View about page."""
+
+    return render_template('about_goh.html')
+
 @app.route('/users')
 def all_users():
     """View all user profiles."""
@@ -87,10 +93,14 @@ def user_logout():
 def user_favorites():
     """View all favorited parks."""
 
-    user_email = session['user_email']
-    favorites = crud.get_user_fav(user_email)
-
-    return render_template('user_favorite_parks.html', favorites=favorites, API_KEY=API_KEY)
+    if 'user_email' in session:
+        user = crud.get_user_by_email(session['user_email'])
+        user_email = session['user_email']
+        favorites = crud.get_user_fav(user_email)
+        return render_template('user_favorite_parks.html', user=user, favorites=favorites, API_KEY=API_KEY)
+    else:
+        flash("Please sign in to your account")
+        return redirect('/')
 
 
 @app.route('/api/add_favorite', methods=["POST"])

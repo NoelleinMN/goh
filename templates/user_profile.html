@@ -4,21 +4,9 @@
 
 {% block body %}
 
-  <h2>Navigation</h2>
-  <ul>
-    <li><a href="/login/user_favorites">View your favorite parks</a></li>
-    <li><a href="/logout">Log out of your account</a></li>
-  </ul>
-
   <h1>{{ user.user_first_name }}'s Profile</h1>
 
   <ul>
-      <li>
-        <a href="/users/{{ user.user_first_name }}">
-          {{ user.user_email }}
-        </a>
-      </li>
-
       <h2>{{ user.user_first_name }} {{ user.user_last_name }}</h2>
 
       <h3>Profile Information</h3>
@@ -77,22 +65,7 @@
             </td>
         </tr>
       </table>
-      <br></br>
   </ul>
+  <button type="button" class="btn btn-lg btn-primary" disabled>Edit profile</button>
 
-    <li>
-        <a href="/login/map">
-        {{ user.user_first_name }}'s Map
-        </a>
-    </li>
-
-<!-- 
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key={{API_KEY}}&callback=initMap">
-    </script>
-
-
-    <script src=
-    "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key={{API_KEY}}">
-    </script> -->
 {% endblock %}

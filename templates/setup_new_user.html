@@ -1,16 +1,12 @@
 {% extends 'base.html' %}
 
 
-<h1> Welcome! Please complete the form to complete your profile. </h1>
+
 
 {% block body %}
-<h2>Navigation</h2>
-<ul>
-  <li><a href="/favorites">View top parks</a></li>
-</ul>
 
-<h2>Create a User Profile</h2>
-
+<h1>Create a User Profile</h1>
+<h3> Welcome! Please complete the form to complete your profile. </h3>
 
 <form action="/newuser" autocomplete method="POST">
   <fieldset>
@@ -221,12 +217,13 @@
   </fieldset>
 
     <br>
-    <label for="favcolor">BONUS FUN!: Select your favorite color (for map customization)</label>
+    <label for="favcolor">BONUS FUN! Select your favorite color (for map customization)</label>
     <input type="color" id="favcolor" name="favcolor" value="#ff8888">
     
     <br>
     <p>
-      <input type="submit" value="Create Account">
+      <input class="btn btn-primary btn-lg" type="submit" value="Create Account">
+      <input class="btn btn-primary btn-lg" type="reset" value="Reset">
     </p>
   </form>
 
