@@ -1,6 +1,7 @@
 """CRUD operations."""
 
 from model import db, User, Favorite_Park, User_Favorite, connect_to_db
+from  sqlalchemy.sql.expression import func
 
 
 def create_user(user_email, user_password, user_first_name, user_last_name, user_zipcode, user_street_address,
@@ -74,6 +75,10 @@ def get_favorite_parks():
 
     return Favorite_Park.query.all()
 
+def get_featured_parks():
+    """Return featured parks that have been favorited."""
+
+    return Favorite_Park.query.order_by(func.random()).limit(4)
 
 def get_favorite_park_by_id(park_API_id):
     """Return a favorited park by primary key."""

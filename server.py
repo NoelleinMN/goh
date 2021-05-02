@@ -18,6 +18,10 @@ API_KEY = os.environ['GOOGLE_MAPS_KEY']
 GEOCODE_BASE_URL: "https://maps.googleapis.com/maps/api/geocode/json"
 
 
+@app.route('/home')
+def test_home():
+    return render_template('test-homepage.html')
+
 
 @app.route('/')
 def homepage():
@@ -113,7 +117,9 @@ def add_favorite():
 
     park_address = data['result']['formatted_address'] #street address
     park_name = data['result']['name'] # park name
-
+    # pic_height = data['photos']['photo_reference']
+    # pic_ref = data['photos'][0]
+    
     print(f"{park_address}, {park_name}")
     favorite_park = crud.create_favorite_park(fav_park_id, park_name, park_address)
     user_fav_park = crud.create_user_fav(fav_park_id, user_email)
@@ -126,12 +132,13 @@ def get_fav_data_api(fav_park_id):
 
     payload = {"place_id": fav_park_id,
                 "key":API_KEY,
-                "fields":"formatted_address,name,photos"   #,geometry,icon,photo"
+                "fields":"formatted_address,name,photos"   #,geometry,icon,photos"
                 }
 
     response = requests.get(endpoint, payload)
     data = response.json()
-    print(data)
+    # print(response.url)
+    # print(data)
 
     return data
 
@@ -183,10 +190,10 @@ def get_google_map_data():
 
 
 @app.route('/all_favorites')
-def all_favorites():
-    """View all favorited parks."""
+def all_featured_favorites():
+    """View featured favorited parks."""
 
-    favorites = crud.get_favorite_parks()
+    favorites = crud.get_featured_parks()
 
     return render_template('all_favorited_parks.html', favorites=favorites, API_KEY=API_KEY)
 

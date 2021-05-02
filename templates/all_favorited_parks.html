@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
-{% block title %}Top Parks{% endblock %}
+{% block title %}Featured Parks{% endblock %}
 
 {% block body %}
-  <h1>Top Parks</h1>
+  <h1>Featured Parks</h1>
 
   {% for park in favorites %}
 
@@ -12,13 +12,97 @@
     <br>
     {{ park.park_address }}
     <br>
+    
     <iframe
     width="550"
     height="350"
     frameborder="0" style="border:0"
     src="https://www.google.com/maps/embed/v1/place?key={{API_KEY}}&q=place_id:{{park.park_API_id}}&zoom=12&maptype=satellite" allowfullscreen>
     </iframe>
+    
     <br>
+
+<!--Grid row-->
+<div class="row">
+
+  <!--Grid column-->
+  <div class="col-md-6 mb-4">
+
+    <!--Card-->
+    <div class="card card-cascade narrower">
+
+      <!--Card image-->
+      <div class="view view-cascade gradient-card-header blue-gradient">
+        <h5 class="mb-0">Map</h5>
+      </div>
+      <!--/Card image-->
+
+      <!--Card content-->
+      <div class="card-body card-body-cascade text-center">
+
+        <!--Google map-->
+        <div id="map-container-google-8" class="z-depth-1-half map-container-5" style="height: 300px">
+          <iframe
+          width="550"
+          height="350"
+          frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/place?key={{API_KEY}}&q=place_id:{{park.park_API_id}}&zoom=12" allowfullscreen>
+          </iframe>
+          
+        </div>
+
+      </div>
+      <!--/.Card content-->
+
+    </div>
+    <!--/.Card-->
+
+  </div>
+  <!--Grid column-->
+
+  <!--Grid column-->
+  <div class="col-md-6 mb-4">
+
+    <!--Card-->
+    <div class="card card-cascade narrower">
+
+      <!--Card image-->
+      <div class="view view-cascade gradient-card-header peach-gradient">
+        <h5 class="mb-0">Featured Photo</h5>
+      </div>
+      <!--/Card image-->
+
+      <!--Card content-->
+      <div class="card-body card-body-cascade text-center">
+
+        <!--Google map-->
+        <div id="map-container-google-9" class="z-depth-1-half map-container-5" style="height: 300px">
+          <b>{{ park.park_name }}</b>
+          <br> 
+          Park # {{ park.park_API_id }}
+          <br>
+          {{ park.park_address }}
+          <br>
+        </div>
+
+
+      </div>
+      <!--/.Card content-->
+
+    </div>
+    <!--/.Card-->
+
+  </div>
+  <!--Grid column-->
+
+</div>
+<!--Grid row-->
+
+
+
+
+
+
 
   {% endfor %}
 
