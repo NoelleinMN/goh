@@ -79,13 +79,13 @@ class FlaskTestsDatabase(unittest.TestCase):
 
         result = self.client.get("/login/user_favorites", data={"user_email": "nicole@gmail.com", "password": "pass123"},
                               follow_redirects=True)
-        self.assertIn(b"'s Favorite Parks", result.data)
+        self.assertIn(b"'s Favorite Places", result.data)
 
     def test_login(self):                         
         """Test log in form."""
 
         result = self.client.post("/login", data={'email': 'nicole@gmail.com', 'password': 'pass123'}, follow_redirects=True)
-        self.assertIn(b"Explore parks and add to favorites", result.data)
+        self.assertIn(b"Explore suggested locations and add to favorites", result.data)
 
     def test_logout(self):
         """Test logout route."""

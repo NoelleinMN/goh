@@ -4,12 +4,10 @@
 
 {% block body %}
 
-  <h1>{{ user.user_first_name }}'s Profile</h1>
+  <h1>{{ user.user_first_name }} {{ user.user_last_name }}'s Profile</h1>
 
   <ul>
-      <h2>{{ user.user_first_name }} {{ user.user_last_name }}</h2>
-
-      <h3>Profile Information</h3>
+      <h3>Personal Information</h3>
       <table>
         <tr>
             <td>Email:</td>
@@ -22,7 +20,7 @@
         </tr>
         <tr>
             <td>Max Search:</td>
-            <td>{{ user.max_search_distance }} miles</td>
+            <td>{{ user.max_search_distance }} m</td>
         </tr>
         <tr>
             <td>Favorite Activities:</td>
@@ -47,7 +45,7 @@
         <tr>  
             <td>Children</td>
             <td>
-                <table border="3px" bordercolor="#F35550">
+                <table border="3px" bordercolor="#221FDB">
                 <h4 align="center">Ages</h4>
                     <tr>
                         <td>Infant</td>

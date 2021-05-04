@@ -43,17 +43,17 @@ function initMap() {
                         const placeMarker = new google.maps.Marker(
                             {position: {lat:place.geometry.location.lat, lng:place.geometry.location.lng},
                             title: place.name,
-                            icon:{url:place.icon}, // can scale the size later (see bears)
+                            icon:{url: '/static/images/white-marker.png'}, // can scale the size later (see bears)
                             map: userMap    
                             }
                         );
                         const placeInfoContent = (`
-                        <h2>${place.name}</h2>
-                        <p>${place.formatted_address}</p>
-                        <p>${place.rating}</p>
-                        <p>${place.types[0]}</p>
-                        <li><a href="https://duckduckgo.com/?q=\\${place.name}${place.formatted_address}" target=_blank>Learn More</a></li>
-                        
+                        <h3>${place.name}</h3>
+                        <a href="https://duckduckgo.com/?q=\\${place.name}${place.formatted_address}" target=_blank>Learn More about ${place.name}</a>
+                        <br><br>
+                        <p><i>${place.formatted_address}</i></p>
+                        <p>Avg user rating: <b>${place.rating} 5 stars</b></p>
+                        <p>Location type: <b>${place.types[0]}</b></p>
                         <button class="favorite-button" id="${place.place_id}">Save to favorites</button>
                         `);
                         placeMarker.addListener('click', ()=>{

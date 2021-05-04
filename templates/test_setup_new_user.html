@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GOH!</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- Google Font -->
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,800,700,900' rel='stylesheet' type='text/css'>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="goh-test.css">
+
+</head>
+
+<body class="newuser">
+  <!-- Static navbar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button"
+                class="navbar-toggle collapsed"
+                data-toggle="collapse"
+                data-target="#navbar"
+                aria-expanded="false"
+                aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">GOH!</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Log In</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <h1>Create a User Profile</h1>
+  <h3> Welcome! Please complete the form to complete your profile. </h3>
+  
+  <form action="/newuser" autocomplete method="POST">
+    <fieldset>
+      <legend>Account Information</legend>
+          <p>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" autofocus required>
+  
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+          </p>
+    </fieldset>
+    <br><br>
+    <fieldset>
+      <legend>Basic Personal Information</legend>
+        <p>
+          <label for="first-name">First name:</label>
+          <input type="text" id="first-name" name="user_first_name" required>
+  
+          <label for="last-name">Last name:</label>
+          <input type="text" id="last-name" name="user_last_name" required>
+        </p>
+          <label for="street-address">Street address:</label>
+          <input type="text" id="street-address" name="user_street_address" required>
+  
+          <label for="city">City:</label>
+          <input type="text" id="city" name="user_city" required>
+        <p>
+          <label for="zipcode">Zipcode:</label>
+          <input type="text" id="zipcode" name="user_zipcode" pattern="[0-9]{5}" title="Five digit zip code" required>
+  
+          <label for="state">State:</label>
+          <input list="state" name="user_state" required>
+          <datalist id="state">
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District Of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+            <option value="AS">American Samoa</option>
+            <option value="GU">Guam</option>
+            <option value="MP">Northern Mariana Islands</option>
+            <option value="PR">Puerto Rico</option>
+            <option value="UM">United States Minor Outlying Islands</option>
+            <option value="VI">Virgin Islands</option>
+          </datalist>
+    </fieldset>
+      <br><br>
+  
+    <fieldset>
+      <legend>Preferences</legend>
+        <p>
+          What activities do you like? What types of places would you like to visit?
+        </p>
+        <label for="user-activities">Activity #1:</label>
+          <select id="user-activities" name="user_activity1">
+            <option value="playground">Playground</option>
+            <option value="trail" selected>Trail</option>
+            <option value="nature preserve">Nature preserve</option>
+            <option value="park">Park</option>
+            <option value="beach">Beach</option>
+            <option value="hiking area">Hiking area</option>
+            <option value="garden">Garden</option>
+            <option value="dog park">Dog park</option>
+            <option value="athletic field">Atheletic field</option>
+            <option value="tennis court">Tennis court</option>
+            <option value="basketball court">Basketball court</option>
+          </select><br>
+        <label for="user-activities">Activity #2:</label>
+          <select id="user-activities" name="user_activity2">
+            <option value="playground" selected>Playground</option>
+            <option value="trail">Trail</option>
+            <option value="nature preserve">Nature preserve</option>
+            <option value="park">Park</option>
+            <option value="beach">Beach</option>
+            <option value="hiking area">Hiking area</option>
+            <option value="garden">Garden</option>
+            <option value="dog park">Dog park</option>
+            <option value="athletic field">Atheletic field</option>
+            <option value="tennis court">Tennis court</option>
+            <option value="basketball court">Basketball court</option>
+          </select><br>
+        <label for="user-activities">Activity #3:</label>
+          <select id="user-activities" name="user_activity3">
+            <option value="playground">Playground</option>
+            <option value="trail">Trail</option>
+            <option value="nature preserve">Nature preserve</option>
+            <option value="park">Park</option>
+            <option value="beach" selected>Beach</option>
+            <option value="hiking area">Hiking area</option>
+            <option value="garden">Garden</option>
+            <option value="dog park">Dog park</option>
+            <option value="athletic field">Atheletic field</option>
+            <option value="tennis court">Tennis court</option>
+            <option value="basketball court">Basketball court</option>
+          </select>
+          
+          <br>
+          <br>
+          
+          <div class="Box">
+            <div width="100%,240px" display="grid" class="Box">
+              <label for="max-search-distance">Max search distance</label><br>
+                1 mile
+              <input type="range" aria-label="zoom" min="1" max="100" step="1"
+                class="icon-viewer" id="max-search-distance" name="max_search_distance" value="50">
+              <span display="flex" class="Box">100 miles</span>
+            </div>
+          </div>
+          
+          <br>
+          <br>
+  
+          <label for="amenities">Amenities #1:</label>
+            <select id="amenities" name="amenities1">
+              <option value="kiosk">Kiosk</option>
+              <option value="restroom" selected>Restroom</option>
+              <option value="seating">Seating</option>
+              <option value="shelter">Shelter</option>
+            </select><br>
+          <label for="amenities">Amenities #2:</label>
+            <select id="amenities" name="amenities2">
+              <option value="kiosk">Kiosk</option>
+              <option value="restroom">Restroom</option>
+              <option value="seating">Seating</option>
+              <option value="shelter">Shelter</option>
+            </select>
+  
+          <br>
+          <br>
+     
+          <label for="pet-friendly">Pet friendly?</label>
+          <input type="radio" id="pet-friendly" name="pet_friendly" value=1>Yes</input>
+          <input type="radio" id="pet-friendly" name="pet_friendly" value=0 checked>No</input><br>
+          
+          <label for="accessibility">Accessibility needs?</label>
+          <input type="radio" id="accessibility" name="accessibility_needs" value=1>Yes</input>
+          <input type="radio" id="accessibility" name="accessibility_needs" value=0 checked>No</input><br>
+  
+          <label for="family-friendly">Family friendly?</label>
+          <input type="radio" id="family-friendly" name="family_friendly" value=1>Yes</input>
+          <input type="radio" id="family-friendly" name="family_friendly" value=0 checked>No</input><br>
+  
+  
+          <label for="children-infant">----->Infants?</label>
+          <input type="radio" id="children-infant" name="children_infant" value=1>Yes</input>
+          <input type="radio" id="children-infant" name="children_infant" value=0 checked>No</input><br>
+  
+  
+          <label for="children-toddler">----->Toddlers?</label>
+          <input type="radio" id="children-toddler" name="children_toddler" value=1>Yes</input>
+          <input type="radio" id="children-toddler" name="children_toddler" value=0 checked>No</input><br>
+  
+  
+          <label for="children-schoolage">----->Schoolage Kids?</label>
+          <input type="radio" id="children-schoolage" name="children_schoolage" value=1>Yes</input>
+          <input type="radio" id="children-schoolage" name="children_schoolage" value=0 checked>No</input><br>
+  
+          <label for="children-teen">----->Teenagers?</label>
+          <input type="radio" id="children-teen" name="children_teen" value=1>Yes</input>
+          <input type="radio" id="children-teen" name="children_teen" value=0 checked>No</input><br>
+    </fieldset>
+  
+      <br>
+      <label for="favcolor">BONUS FUN! Select your favorite color (for map customization)</label>
+      <input type="color" id="favcolor" name="favcolor" value="#221FDB">
+      
+      <br>
+      <p>
+        <input class="btn btn-primary btn-lg" type="submit" value="Create Account">
+        <input class="btn btn-primary btn-lg" type="reset" value="Reset">
+      </p>
+    </form>
+  </body>
+
+  <footer class="text-muted py-5">
+      <p class="mb-1">GOH! &copy; 2021</p>
+  </footer>
+
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+</body>
+</html>
