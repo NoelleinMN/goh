@@ -5,38 +5,31 @@
 
 {% block body %}
 <body class="newuser">
-<h1>Create a User Profile</h1>
-<h3> Welcome! Please complete the form to complete your profile. </h3>
+    <h2 class="newuser-header">Create a User Profile</h2>
+<form class="newuser-form" action="/newuser" method="POST">
 
-<form action="/newuser" autocomplete method="POST">
-  <fieldset>
-    <legend>Account Information</legend>
-        <p>
+    <h5>Account Information</h5>
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email" autofocus required>
+          <input type="text" id="email" name="email" autofocus required >
 
           <label for="password">Password:</label>
           <input type="password" id="password" name="password" required>
-        </p>
-  </fieldset>
-  <br><br>
-  <fieldset>
-    <legend>Basic Personal Information</legend>
-      <p>
+
+    <h5>Basic Personal Information</h5>
         <label for="first-name">First name:</label>
         <input type="text" id="first-name" name="user_first_name" required>
 
         <label for="last-name">Last name:</label>
         <input type="text" id="last-name" name="user_last_name" required>
-      </p>
+      <br>
         <label for="street-address">Street address:</label>
         <input type="text" id="street-address" name="user_street_address" required>
 
         <label for="city">City:</label>
         <input type="text" id="city" name="user_city" required>
-      <p>
+      <br>
         <label for="zipcode">Zipcode:</label>
-        <input type="text" id="zipcode" name="user_zipcode" pattern="[0-9]{5}" title="Five digit zip code" required>
+        <input type="text" id="zipcode" name="user_zipcode" maxlength="5" size="50" pattern="[0-9]{5}" title="Five digit zip code" required>
 
         <label for="state">State:</label>
         <input list="state" name="user_state" required>
@@ -99,11 +92,9 @@
           <option value="UM">United States Minor Outlying Islands</option>
           <option value="VI">Virgin Islands</option>
         </datalist>
-  </fieldset>
-    <br><br>
 
-  <fieldset>
-    <legend>Preferences</legend>
+    <p></p>
+    <h5>Preferences</h5>
       <p>
         What activities do you like? What types of places would you like to visit?
       </p>
@@ -155,7 +146,7 @@
         
         <div class="Box">
           <div width="100%,240px" display="grid" class="Box">
-            <label for="max-search-distance">Max search distance</label><br>
+            <label for="max-search-distance">Max search distance</label><span class="max-distance"> </span>
               1 mile
             <input type="range" aria-label="zoom" min="1" max="100" step="1"
               class="icon-viewer" id="max-search-distance" name="max_search_distance" value="50">
@@ -163,7 +154,6 @@
           </div>
         </div>
         
-        <br>
         <br>
 
         <label for="amenities">Amenities #1:</label>
@@ -179,52 +169,46 @@
             <option value="restroom">Restroom</option>
             <option value="seating">Seating</option>
             <option value="shelter">Shelter</option>
-          </select>
-
-        <br>
-        <br>
+          </select><br><br>
    
-        <label for="pet-friendly">Pet friendly?</label>
+        <label for="pet-friendly">Pet friendly?</label><span class="pet-friendly"> </span>
         <input type="radio" id="pet-friendly" name="pet_friendly" value=1>Yes</input>
         <input type="radio" id="pet-friendly" name="pet_friendly" value=0 checked>No</input><br>
         
-        <label for="accessibility">Accessibility needs?</label>
+        <label for="accessibility">Accessibility needs?</label><span class="max-distance"> </span>
         <input type="radio" id="accessibility" name="accessibility_needs" value=1>Yes</input>
         <input type="radio" id="accessibility" name="accessibility_needs" value=0 checked>No</input><br>
 
-        <label for="family-friendly">Family friendly?</label>
+        <label for="family-friendly">Family friendly?</label><span class="family-friendly"> </span>
         <input type="radio" id="family-friendly" name="family_friendly" value=1>Yes</input>
         <input type="radio" id="family-friendly" name="family_friendly" value=0 checked>No</input><br>
 
 
-        <label for="children-infant">----->Infants?</label>
-        <input type="radio" id="children-infant" name="children_infant" value=1>Yes</input>
-        <input type="radio" id="children-infant" name="children_infant" value=0 checked>No</input><br>
+        <label for="children-infant"></label>
+        <input type="hidden" id="children-infant" name="children_infant" value=1></input>
+        <input type="hidden" id="children-infant" name="children_infant" value=0 checked></input>
 
 
-        <label for="children-toddler">----->Toddlers?</label>
-        <input type="radio" id="children-toddler" name="children_toddler" value=1>Yes</input>
-        <input type="radio" id="children-toddler" name="children_toddler" value=0 checked>No</input><br>
+        <label for="children-toddler"></label>
+        <input type="hidden" id="children-toddler" name="children_toddler" value=1></input>
+        <input type="hidden" id="children-toddler" name="children_toddler" value=0 checked></input>
 
 
-        <label for="children-schoolage">----->Schoolage Kids?</label>
-        <input type="radio" id="children-schoolage" name="children_schoolage" value=1>Yes</input>
-        <input type="radio" id="children-schoolage" name="children_schoolage" value=0 checked>No</input><br>
+        <label for="children-schoolage"></label>
+        <input type="hidden" id="children-schoolage" name="children_schoolage" value=1></input>
+        <input type="hidden" id="children-schoolage" name="children_schoolage" value=0 checked></input>
 
-        <label for="children-teen">----->Teenagers?</label>
-        <input type="radio" id="children-teen" name="children_teen" value=1>Yes</input>
-        <input type="radio" id="children-teen" name="children_teen" value=0 checked>No</input><br>
-  </fieldset>
+        <label for="children-teen"></label>
+        <input type="hidden" id="children-teen" name="children_teen" value=1></input>
+        <input type="hidden" id="children-teen" name="children_teen" value=0 checked></input>
 
     <br>
     <label for="favcolor">BONUS FUN! Select your favorite color (for map customization)</label>
     <input type="color" id="favcolor" name="favcolor" value="#221FDB">
     
     <br>
-    <p>
-      <input class="btn btn-primary btn-lg" type="submit" value="Create Account">
-      <input class="btn btn-primary btn-lg" type="reset" value="Reset">
-    </p>
+      <input class="btn btn-outline-primary" type="submit" value="Create Account">
+      <input class="btn btn-outline-primary" type="reset" value="Reset">
   </form>
 </body>
 {% endblock %}

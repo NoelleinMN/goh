@@ -59,12 +59,27 @@ body.newuser {background-image: url(/static/images/tree-zoom.jpg);}
   margin-top: 100px;
 }
 
+
+
+.newuser-header {
+  margin-top: 5px;
+  margin-left: -250px;
+  margin-right: 0;
+}
+
+.newuser-form {
+  margin-top: 0;
+  margin-left: -250px;
+  margin-right: 0;
+}
+
 form {
   margin-top: 25px;
 }
 
 .login {
     color: #ffd200;
+    border-color: #ffd200;
     font-family: 'Raleway', sans-serif;
     font-weight: 200;
     color: #fff;
@@ -79,9 +94,9 @@ form {
 
 
 .btn {
-  margin: 25px;
+  margin: 10px;
   display: inline-block;
-  padding: 15px 30px;
+  padding: 10px 30px;
   border: 1px solid #fff;
   text-transform: uppercase;
   letter-spacing: 0.015em;
@@ -98,11 +113,12 @@ form {
 }
 .btn:hover {
   color: #fff;
-  border-color: #BFFF97;
+  border-color: #ffd200;
+  background: #dab200;
 }
 
 
-input[type="text"], input[type="password"] {
+input[type="email"], input[type="password"] {
   width: 350px;
   padding: 10px 0px;
   background: transparent;
@@ -117,24 +133,55 @@ input[type="text"], input[type="password"] {
   margin-bottom: 50px;
 }
 
-input[type="submit"] {
-  background: #ccc;
+input[type="text"] {
+  width: 300px;
+  padding: 5px 0px;
+  background: transparent;
   border: 0;
-  width: 350px;
-  height: 40px;
-  border-radius: 0px;
+  border-bottom: 1.5px solid #cccccc;
+  outline: none;
   color: #fff;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background 0.3s ease-in-out;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 15px;
 }
+
+span.max-distance {display: inline-block; width: 30px}
+
+span.pet-friendly {display: inline-block; width: 87px}
+
+span.family-friendly {display: inline-block; width: 65px}
+
+input[type="submit"] {
+  margin: 10px;
+  display: inline-block;
+  padding: 10px 30px;
+  border: 1px solid #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.015em;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  color: #fff;
+  text-decoration: none;
+  -webkit-transition: all 0.4s;
+     -moz-transition: all 0.4s;
+       -o-transition: all 0.4s;
+          transition: all 0.4s;
+}
+
 input[type="submit"]:hover {
-  background: #cccccc;
+  background: #dab200;
+  border-color: #ffd200;
   animation-name: shake;
 }
 
 .mb-1 {
-    color: #ffd200;
+    color: #dab200;
+    border-color: #ffd200;
     font-family: 'Raleway', sans-serif;
     font-weight: 300;
     color: #fff;
@@ -147,8 +194,10 @@ input[type="submit"]:hover {
     margin-right: 600px;  
 }
 
-.col-lg-3 {
-    margin: 50px;
+.col-lg-5 {
+    margin: 0;
+    margin-left: -250px;
+    margin-right: 600px; 
     font-size: 18px;
     font-weight: 400;
 }
