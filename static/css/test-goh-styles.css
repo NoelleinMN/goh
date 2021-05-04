@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-  background-image: url(grass-hill-tree-bench.jpg);
+  background-image: url(/static/images/grass-hill-tree-bench.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -15,24 +15,30 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-body.about {background-image: url(tree-sunset.jpg);}
+body.about {background-image: url(/static/images/tree-sunset.jpg);}
 
-body.newuser {background-image: url(tree-zoom.jpg);}
+body.newuser {background-image: url(/static/images/tree-zoom.jpg);}
 
-.navbar {
+.navbar .navbar-expand-lg .navbar-light {
   background: transparent;
   border: none;
   color: #fff;
   font-family: 'Raleway', sans-serif;
 }
 
-.navbar-default .navbar-brand, .navbar-default .navbar-nav li a {
+.navbar .navbar-brand, .navbar .navbar-nav li a {
   color: #fff;
   font-family: 'Raleway', sans-serif;
 
 }
 
-.navbar-default .navbar-brand:hover, .navbar-default .navbar-nav li a:hover {
+.navbar-nav li a, .navbar-light .navbar-nav .nav-link {
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+
+}
+
+.navbar .navbar-brand:hover, .navbar .navbar-nav li a:hover {
   color: #ffd200;
 }
 

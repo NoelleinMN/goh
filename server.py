@@ -18,10 +18,6 @@ API_KEY = os.environ['GOOGLE_MAPS_KEY']
 GEOCODE_BASE_URL: "https://maps.googleapis.com/maps/api/geocode/json"
 
 
-@app.route('/home')
-def test_home():
-    return render_template('test_homepage.html')
-
 
 @app.route('/')
 def homepage():
