@@ -48,13 +48,14 @@ function initMap() {
                             }
                         );
                         const placeInfoContent = (`
-                        <h3>${place.name}</h3>
-                        <a href="https://duckduckgo.com/?q=\\${place.name}${place.formatted_address}" target=_blank>Learn More about ${place.name}</a>
-                        <br><br>
+                        
+                        <h3 style="color:rgb(15, 30, 235)">${place.name}</h3>
+                        <b><a href="https://duckduckgo.com/?q=\\${place.name}${place.formatted_address}" target=_blank>Learn More about ${place.name}</a></b>
+                        <br><br><div class="info"
                         <p><i>${place.formatted_address}</i></p>
-                        <p>Avg user rating: <b>${place.rating} 5 stars</b></p>
+                        <p>Avg user rating: <b>${place.rating} / 5 stars</b></p>
                         <p>Location type: <b>${place.types[0]}</b></p>
-                        <button class="favorite-button" id="${place.place_id}">Save to favorites</button>
+                        <button class="favorite-button" id="${place.place_id}">Save to favorites</button></div>
                         `);
                         placeMarker.addListener('click', ()=>{
                             placeInfo.close();

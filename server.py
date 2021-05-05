@@ -97,7 +97,8 @@ def user_favorites():
         user = crud.get_user_by_email(session['user_email'])
         user_email = session['user_email']
         favorites = crud.get_user_fav(user_email)
-        return render_template('user_favorite_parks.html', user=user, favorites=favorites, API_KEY=API_KEY)
+        n = len(favorites)
+        return render_template('user_favorite_parks.html', user=user, favorites=favorites, n=n, API_KEY=API_KEY)
     else:
         flash("Please sign in to your account.")
         return redirect('/')

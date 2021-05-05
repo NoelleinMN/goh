@@ -2,30 +2,44 @@
 {% block title %}Your Favorite Parks{% endblock %}
 
 {% block body %}
+<body class="user-favs">
 <h1>{{ user.user_first_name }}'s Favorite Places</h1>
+  
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" align=center>
+    <div class="carousel-inner">
+      {% for i in range(0,1) %}
+      <div class="carousel-item active">
+        <iframe
+        width="650"
+        height="450"
+        frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key={{API_KEY}}&q=place_id:{{favorites[i].favorite_park.park_API_id}}&zoom=12&maptype=satellite" allowfullscreen>
+        </iframe>
+      </div>
+      {% endfor %}
+      {% for i in range(1,n-1) %}
+      <div class="carousel-item">
+        <iframe
+        width="650"
+        height="450"
+        frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key={{API_KEY}}&q=place_id:{{favorites[i].favorite_park.park_API_id}}&zoom=12&maptype=satellite" allowfullscreen>
+        </iframe>
+      </div>
+      {% endfor %}
+    </div>
 
-  <ul>
-    {% for fav in favorites %}
-
-      <b>{{ fav.favorite_park.park_name }}</b>
-      
-      <br>Park # {{ fav.favorite_park.park_API_id }}</br>
-      {{ fav.favorite_park.park_address }}
-      <br></br>
-    
-    <iframe
-    width="550"
-    height="350"
-    frameborder="0" style="border:0"
-    src="https://www.google.com/maps/embed/v1/place?key={{API_KEY}}&q=place_id:{{fav.favorite_park.park_API_id}}&zoom=12&maptype=satellite" allowfullscreen>
-    </iframe>
-
-    <li><a href="/">GOH! homepage</a></li>
-      
-
-    {% endfor %}
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sl-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sl-only">Next</span>
+    </a>
+  </div>
+</body>
 
 
 
-  </ul>
 {% endblock %}

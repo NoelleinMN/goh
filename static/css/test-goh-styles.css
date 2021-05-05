@@ -46,6 +46,8 @@ body.profile {
   /* filter: hue-rotate(60deg) brightness(.9) contrast(1.1) saturate(1.1); */
 }
 
+body.user-favs {background-image: url(/static/images/hero_tree_lane.jpg);}
+
 .navbar .navbar-expand-lg .navbar-light {
   background: transparent;
   border: none;
@@ -286,4 +288,13 @@ input[type="submit"]:hover {
   border-radius: .25rem;
   -webkit-box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
   box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
+}
+
+.info {
+  color:rgb(15, 30, 235);
+  background-color: #ffd200;
+}
+
+.carousel {
+  margin-top: 300px;
 }
