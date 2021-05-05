@@ -26,7 +26,25 @@ body.about {background-image: url(/static/images/tree-sunset.jpg);}
 
 body.newuser {background-image: url(/static/images/tree-zoom.jpg);}
 
-body.profile {background-image: url(/static/images/winter-tree-bench.jpg);}
+body.featured {background-image: url(/static/images/field-no-tree.jpg);}
+
+.featured-header {
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+
+.featured-footer {
+  margin-top: 45px;
+  margin-left: 165px;
+}
+
+body.profile {
+  background-image: 
+  /* linear-gradient(black, black), */
+  url(/static/images/winter-tree-bench.jpg);
+  /* background-blend-mode: saturation;  */
+  /* filter: hue-rotate(60deg) brightness(.9) contrast(1.1) saturate(1.1); */
+}
 
 .navbar .navbar-expand-lg .navbar-light {
   background: transparent;
@@ -47,8 +65,8 @@ body.profile {background-image: url(/static/images/winter-tree-bench.jpg);}
 
 }
 
-.navbar .navbar-brand:hover, .navbar .navbar-nav li a:hover, .navbar-light .navbar-nav .nav-link:hover {
-  color: #ffd200;
+.navbar .navbar-brand:hover, .navbar .navbar-nav li a:hover, .navbar-light .navbar-nav .nav-link:hover, .nav-link:hover {
+  color: #ffd200 !important;
 }
 
 .tagline {
@@ -220,8 +238,8 @@ input[type="submit"]:hover {
 
 .mb-0 {
   font-family: 'Raleway', sans-serif;
-  font-weight: 300;
-  color: black;
+  font-weight: 400;
+  color: #fff;
 }
 
 .col-lg-5 {
@@ -231,4 +249,41 @@ input[type="submit"]:hover {
     margin-right: 600px; 
     font-size: 18px;
     font-weight: 400;
+}
+
+
+.map-container-5{
+  overflow:hidden;
+  padding-bottom:65%;
+  position:relative;
+  height:0;
+}
+
+.map-container-5 iframe{
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  position:absolute;
+}
+
+.blue-gradient {
+  background: linear-gradient(40deg, #a2dbf0, #ffd200) !important; }
+
+.card.card-cascade.narrower .view.view-cascade {
+  margin-top: -1.25rem;
+  margin-right: 4%;
+  margin-left: 4%;
+}
+
+.card.card-cascade .view.view-cascade.gradient-card-header {
+  padding: 1.6rem 1rem;
+  color: #fff;
+  text-align: center;
+}
+
+.card.card-cascade .view.view-cascade {
+  border-radius: .25rem;
+  -webkit-box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
+  box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
 }

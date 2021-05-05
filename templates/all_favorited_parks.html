@@ -2,18 +2,11 @@
 {% block title %}Featured Parks{% endblock %}
 
 {% block body %}
-  <h1>Featured Parks</h1>
+<body class="featured">
+  <h1 class="featured-header">Featured Parks</h1>
 
-  {#<!-- {% for park in favorites %} -->#}
 
-{#<!-- 
-    <b>{{ favorites.park_name }}</b>
-    <br> 
-    Park # {{ favorites.park_API_id }}
-    <br>
-    {{ favorites.park_address }} -->
-
-<!--Grid row-->#}
+<!--Grid row-->
 <div class="row align-items-end">
   {% for i in range(n) %}
   <!--Grid column-->
@@ -24,7 +17,7 @@
 
       <!--Card image-->
       <div class="view view-cascade gradient-card-header blue-gradient">
-        <h5 class="mb-0">Map</h5>
+        <h5 class="mb-0"><b>{{ favorites[i].park_name }}</b></h5>
       </div>
       <!--/Card image-->
 
@@ -34,8 +27,8 @@
         <!--Google map-->
         <div id="map-container-google-8" class="z-depth-1-half map-container-5" style="height: fit-content; width: auto">
           <iframe
-          width="500"
-          height="350"
+          width="570"
+          height="400"
           frameborder="0" style="border:0"
           src="https://www.google.com/maps/embed/v1/place?key={{API_KEY}}&q=place_id:{{favorites[i].park_API_id}}&zoom=12" allowfullscreen>
           </iframe>
@@ -51,6 +44,6 @@
   </div>
   <!--Grid column-->
   {% endfor %}
-
-
+  <i><h2 class="featured-footer">A sampling of users' favorite parks. So, there you GOH!</h2></i>
+</body>
 {% endblock %}
