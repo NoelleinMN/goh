@@ -3,7 +3,7 @@
 
 {% block body %}
 <body class="user-favs">
-<h1>{{ user.user_first_name }}'s Favorite Places</h1>
+
   
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" align=center>
     <div class="carousel-inner">
@@ -13,7 +13,7 @@
         width="650"
         height="450"
         frameborder="0" style="border:0"
-        src="https://www.google.com/maps/embed/v1/place?key={{API_KEY}}&q=place_id:{{favorites[i].favorite_park.park_API_id}}&zoom=12&maptype=satellite" allowfullscreen>
+        src="https://www.google.com/maps/embed/v1/place?key={{API_KEY}}&q=place_id:{{favorites[i].favorite_park.park_API_id}}&zoom=13" allowfullscreen>
         </iframe>
       </div>
       {% endfor %}
@@ -23,7 +23,7 @@
         width="650"
         height="450"
         frameborder="0" style="border:0"
-        src="https://www.google.com/maps/embed/v1/place?key={{API_KEY}}&q=place_id:{{favorites[i].favorite_park.park_API_id}}&zoom=12&maptype=satellite" allowfullscreen>
+        src="https://www.google.com/maps/embed/v1/place?key={{API_KEY}}&q=place_id:{{favorites[i].favorite_park.park_API_id}}&zoom=13" allowfullscreen>
         </iframe>
       </div>
       {% endfor %}
@@ -38,6 +38,7 @@
       <span class="sl-only">Next</span>
     </a>
   </div>
+  <b><h1 id="user-fav-header">{{ user.user_first_name }}'s Favorite Places</h1></b>
 </body>
 
 

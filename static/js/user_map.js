@@ -43,7 +43,7 @@ function initMap() {
                         const placeMarker = new google.maps.Marker(
                             {position: {lat:place.geometry.location.lat, lng:place.geometry.location.lng},
                             title: place.name,
-                            icon:{url: '/static/images/white-marker.png'}, // can scale the size later (see bears)
+                            icon:{url: '/static/images/gold-marker.png'}, // can scale the size later (see bears)
                             map: userMap    
                             }
                         );

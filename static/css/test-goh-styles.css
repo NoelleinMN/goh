@@ -10,7 +10,6 @@ input::placeholder {
 }
 
 
-
 body {
   background-image: url(/static/images/grass-hill-tree-bench.jpg);
   background-size: cover;
@@ -25,6 +24,8 @@ body {
 body.about {background-image: url(/static/images/tree-sunset.jpg);}
 
 body.newuser {background-image: url(/static/images/tree-zoom.jpg);}
+
+body.user-map {background-image: url(/static/images/hero_tree_lane.jpg);}
 
 body.featured {background-image: url(/static/images/field-no-tree.jpg);}
 
@@ -46,7 +47,7 @@ body.profile {
   /* filter: hue-rotate(60deg) brightness(.9) contrast(1.1) saturate(1.1); */
 }
 
-body.user-favs {background-image: url(/static/images/hero_tree_lane.jpg);}
+body.user-favs {background-image: url(/static/images/pier-lake.webp);}
 
 .navbar .navbar-expand-lg .navbar-light {
   background: transparent;
@@ -296,5 +297,11 @@ input[type="submit"]:hover {
 }
 
 .carousel {
-  margin-top: 300px;
+  margin-top: 190px;
+}
+
+#user-fav-header {
+  padding: 60px;
+  text-align: center;
+  font-weight:600;
 }

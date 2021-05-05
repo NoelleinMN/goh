@@ -2,6 +2,7 @@
 {% block title %}GOH! GOH!{% endblock %}
 
 {% block body %}
+<body class="user-map">
 
 <h1>{{ user.user_first_name }}'s Map</h1>
 
@@ -21,6 +22,6 @@
   src="https://maps.googleapis.com/maps/api/js?key={{API_KEY}}&callback=initMap">
   </script>
 
-
+</body>
 
 {% endblock %}
