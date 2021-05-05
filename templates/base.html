@@ -50,10 +50,10 @@
 
         inspiration = Math.floor(Math.random() * quotes.length);
 
-        document.write("<h3 style='background-color: #92cbf5; text-align:center'>\"");
+        document.write("<h3 style='text-align:center'>\"");
         document.write(quotes[inspiration] + "\"");
         document.write("</h3>");
-        document.write("<br> <p style='background-color: #92cbf5; text-align:center'\"><em>- " + sources[inspiration] + "</em>");
+        document.write("<br> <p style='text-align:center'\"><em>- " + sources[inspiration] + "</em>");
         document.write("</p>");
       }
     </script>
@@ -82,15 +82,15 @@
       
       <ul class="navbar-nav mr-auto">     
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: transparent; color: #ffff;">
             Your Account
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/login/map">Your Map</a>
-            <a class="dropdown-item" href="/login/user_favorites">Your Favorites</a>
-            <a class="dropdown-item" href="/login/profile">View Profile</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: transparent; color: #ffff;">
+            <a class="dropdown-item" href="/login/map" style="background-color: transparent;">Your Map</a>
+            <a class="dropdown-item" href="/login/user_favorites" style="background-color: transparent;">Your Favorites</a>
+            <a class="dropdown-item" href="/login/profile" style="background-color: transparent;">View Profile</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/logout">Logout</a>
+            <a class="dropdown-item" href="/logout" style="background-color: transparent;">Logout</a>
           </div>
         </li>
         <li class="nav-item">
@@ -104,19 +104,13 @@
         </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="/login" data-toggle="modal" data-target="#exampleModal">Inspiration</a>
+            <a class="nav-link" href="/login" data-toggle="modal" data-target="#exampleModal" style= "color: #fff">Inspiration</a>
         </li>
       </ul>
         <!-- Inspiration Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true" style="background-color: transparent; color: #ffff;">
           <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel">Reload the page for more inspiration</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
+            <div class="modal-content" style="background-color: transparent; color: #ffff;">
               <div class="modal-body">
                 <script type="text/javascript">
                   getQuote();
@@ -127,7 +121,7 @@
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn" data-dismiss="modal">Close</button>
                 
                 <!-- <button type="button" class="btn btn-primary" onclick="console.log('The link was clicked.'); return getQuote();">More inspiration</button> -->
               </div>
@@ -138,7 +132,7 @@
 
 
       <form action="/parks/search" autocomplete="on" method="GET" class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" id="park-search" name="zipcode" placeholder="Address or Zip" aria-label="Search" style="background-color: transparent; color: #ffff;">
+        <input class="form-control mr-sm-2" type="search" id="park-search" name="zipcode" placeholder="address or zip" aria-label="Search" style="background-color: transparent; color: #ffff;">
         <button class="btn" type="submit">Search</button>
       </form>
     </div>
@@ -154,7 +148,7 @@
 
       {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
-      <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+      <div class="alert alert-secondary alert-dismissible fade show" role="alert" style="background-color: transparent; color: #ffff;">
 
         {% for category, message in messages %}
           <h6 class="{{ category }}">{{ message }}</h6>

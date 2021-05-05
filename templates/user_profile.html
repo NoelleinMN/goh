@@ -3,11 +3,11 @@
 {% block title %}GOH! {{ user.user_first_name }} GOH!{% endblock %}
 
 {% block body %}
+<body class="profile">
 
-  <h1>{{ user.user_first_name }} {{ user.user_last_name }}'s Profile</h1>
+  <h2>{{ user.user_first_name }} {{ user.user_last_name }}'s Profile</h2>
 
-  <ul>
-      <h3>Personal Information</h3>
+
       <table>
         <tr>
             <td>Email:</td>
@@ -42,7 +42,7 @@
             <td>Family Friendly?</td>
             <td>{{ user.family_friendly }}</td>
         </tr>
-        <tr>  
+        {# <!-- <tr>  
             <td>Children</td>
             <td>
                 <table border="3px" bordercolor="#221FDB">
@@ -61,9 +61,9 @@
                     </tr>
                 </table>
             </td>
-        </tr>
+        </tr> --> #}
       </table>
-  </ul>
-  <button type="button" class="btn btn-lg btn-primary" disabled>Edit profile</button>
 
+  <button type="button" class="btn" disabled>Edit profile</button>
+  </body>
 {% endblock %}
