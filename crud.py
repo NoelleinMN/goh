@@ -78,7 +78,7 @@ def get_favorite_parks():
 def get_featured_parks():
     """Return featured parks that have been favorited."""
 
-    return Favorite_Park.query.order_by(func.random()).limit(4)
+    return Favorite_Park.query.order_by(func.random()).limit(2).all()
 
 def get_favorite_park_by_id(park_API_id):
     """Return a favorited park by primary key."""

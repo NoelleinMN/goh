@@ -154,6 +154,21 @@ span.pet-friendly {display: inline-block; width: 87px}
 
 span.family-friendly {display: inline-block; width: 65px}
 
+
+select {
+  padding: 5px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  background: transparent;
+  -webkit-appearance: none;
+
+}
+select option{
+background-color: #dab200
+}
+
+
 input[type="submit"] {
   margin: 10px;
   display: inline-block;
@@ -192,6 +207,12 @@ input[type="submit"]:hover {
     margin-top: 75px;
     margin-left: 10px;
     margin-right: 600px;  
+}
+
+.mb-0 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  color: black;
 }
 
 .col-lg-5 {

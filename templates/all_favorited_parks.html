@@ -4,27 +4,18 @@
 {% block body %}
   <h1>Featured Parks</h1>
 
-  {% for park in favorites %}
+  {#<!-- {% for park in favorites %} -->#}
 
-    <b>{{ park.park_name }}</b>
+{#<!-- 
+    <b>{{ favorites.park_name }}</b>
     <br> 
-    Park # {{ park.park_API_id }}
+    Park # {{ favorites.park_API_id }}
     <br>
-    {{ park.park_address }}
-    <br>
-    <div class="card" style="background-color: violet;">
-    <iframe
-    width="550"
-    height="350"
-    frameborder="0" style="border:0"
-    src="https://www.google.com/maps/embed/v1/place?key={{API_KEY}}&q=place_id:{{park.park_API_id}}&zoom=12&maptype=satellite" allowfullscreen>
-    </iframe>
+    {{ favorites.park_address }} -->
 
-    <br>
-    </div>
-<!--Grid row-->
-<div class="row">
-
+<!--Grid row-->#}
+<div class="row align-items-end">
+  {% for i in range(n) %}
   <!--Grid column-->
   <div class="col-md-6 mb-4">
 
@@ -41,12 +32,12 @@
       <div class="card-body card-body-cascade text-center">
 
         <!--Google map-->
-        <div id="map-container-google-8" class="z-depth-1-half map-container-5" style="height: 300px">
+        <div id="map-container-google-8" class="z-depth-1-half map-container-5" style="height: fit-content; width: auto">
           <iframe
-          width="550"
+          width="500"
           height="350"
           frameborder="0" style="border:0"
-          src="https://www.google.com/maps/embed/v1/place?key={{API_KEY}}&q=place_id:{{park.park_API_id}}&zoom=12" allowfullscreen>
+          src="https://www.google.com/maps/embed/v1/place?key={{API_KEY}}&q=place_id:{{favorites[i].park_API_id}}&zoom=12" allowfullscreen>
           </iframe>
           
         </div>
@@ -59,51 +50,7 @@
 
   </div>
   <!--Grid column-->
-
-  <!--Grid column-->
-  <div class="col-md-6 mb-4">
-
-    <!--Card-->
-    <div class="card card-cascade narrower">
-
-      <!--Card image-->
-      <div class="view view-cascade gradient-card-header peach-gradient">
-        <h5 class="mb-0">Featured Photo</h5>
-      </div>
-      <!--/Card image-->
-
-      <!--Card content-->
-      <div class="card-body card-body-cascade text-center">
-
-        <!--Google map-->
-        <div id="map-container-google-9" class="z-depth-1-half map-container-5" style="height: 300px">
-          <b>{{ park.park_name }}</b>
-          <br> 
-          Park # {{ park.park_API_id }}
-          <br>
-          {{ park.park_address }}
-          <br>
-        </div>
-
-
-      </div>
-      <!--/.Card content-->
-
-    </div>
-    <!--/.Card-->
-
-  </div>
-  <!--Grid column-->
-
-</div>
-<!--Grid row-->
-
-
-
-
-
-
-
   {% endfor %}
+
 
 {% endblock %}

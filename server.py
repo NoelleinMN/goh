@@ -190,8 +190,9 @@ def all_featured_favorites():
     """View featured favorited parks."""
 
     favorites = crud.get_featured_parks()
+    n = len(favorites)
 
-    return render_template('all_favorited_parks.html', favorites=favorites, API_KEY=API_KEY)
+    return render_template('all_favorited_parks.html', favorites=favorites, n=n, API_KEY=API_KEY)
 
 
 @app.route('/parks/search')

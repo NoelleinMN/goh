@@ -31,8 +31,8 @@
         <label for="zipcode">Zipcode:</label>
         <input type="text" id="zipcode" name="user_zipcode" maxlength="5" size="50" pattern="[0-9]{5}" title="Five digit zip code" required>
 
-        <label for="state">State:</label>
-        <input list="state" name="user_state" required>
+        <label for="state" >State:</label>
+        <input list="state" name="user_state" style="background-color: transparent;" required>
         <datalist id="state">
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
@@ -204,7 +204,7 @@
 
     <br>
     <label for="favcolor">BONUS FUN! Select your favorite color (for map customization)</label>
-    <input type="color" id="favcolor" name="favcolor" value="#221FDB">
+    <input type="color" id="favcolor" name="favcolor" value="#221FDB" style="background-color: transparent;">
     
     <br>
       <input class="btn btn-outline-primary" type="submit" value="Create Account">
