@@ -36,7 +36,7 @@ function initMap() {
                     const userMap = new google.maps.Map(
                         document.querySelector('#map'),
                         {center: userCoords,
-                        zoom: 11}
+                        zoom: 12}
                     );
                     const placeInfo = new google.maps.InfoWindow();
                     for (const place of places){
@@ -63,14 +63,9 @@ function initMap() {
                             placeInfo.open(userMap, placeMarker);
                         });
                     }
-
-
                 });
             }
             else {console.log("Could not geocode this address.")}
         });
-
     }); 
-
-
     }

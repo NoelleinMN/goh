@@ -1,14 +1,9 @@
-// This example requires the Places library. Include the libraries=places
-// parameter when you first load the API. For example:
-// <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIwzALxUPNbatRBj3Xi1Uhp0fFzwWNBkE&libraries=places">
 
 function initMap() {
-  // Create the map.
   const map = new google.maps.Map(document.getElementById("map"), {
     center: coords,
     zoom: 15,
   });
-  // Create the places service.
   const service = new google.maps.places.PlacesService(map);
   let getNextPage;
   const moreButton = document.getElementById("more");
@@ -20,7 +15,7 @@ function initMap() {
       getNextPage();
     }
   };
-  // Perform a nearby search.
+
   service.nearbySearch(
     { location: coords, radius: 3000, type: "park" },
     (results, status, pagination) => {
@@ -30,7 +25,6 @@ function initMap() {
 
       if (pagination && pagination.hasNextPage) {
         getNextPage = () => {
-          // Note: nextPage will call the same handler function as the initial call
           pagination.nextPage();
         };
       }
