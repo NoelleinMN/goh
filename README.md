@@ -1,5 +1,4 @@
 # "There is no such thing as bad weather, only bad clothing."
-
 <img src="https://github.com/NoelleinMN/goh/blob/master/static/images/GOH-logo.png" alt="GOH!" align="right"> 
 
 ## GOH...Get Out of the House!
