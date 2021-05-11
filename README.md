@@ -1,6 +1,6 @@
 ## GOH...Get Out of the House!
 
-# <img src="https://github.com/NoelleinMN/goh/blob/master/static/images/GOH-logo.png" width="40%" alt="GOH!">
+# <img src="https://github.com/NoelleinMN/goh/blob/master/static/images/GOH-logo.png" width="25%" alt="GOH!">
 > "There is no such thing as bad weather, only bad clothing."
 
 
