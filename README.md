@@ -1,7 +1,6 @@
 ## GOH...Get Out of the House!
 
-# <img src="https://github.com/NoelleinMN/goh/blob/master/static/images/GOH-logo.png" width="25%" alt="GOH!">
-> "There is no such thing as bad weather, only bad clothing."
+<img src="https://github.com/NoelleinMN/goh/blob/master/static/images/GOH-logo.png" width="25%" alt="GOH!"> > "There is no such thing as bad weather, only bad clothing."
 
 
 Based on lessons learned during the global pandemic, "GOH!" (Get Out of the House) is designed to support users in getting outside to spend more time in nearby nature, parks, and recreation locations. GOH! allows users to create a profile with preferences, and then uses the robustness of the Google Maps API to return localized parks and recreation locations that may fit their needs and interests. Return results include a user's personalized map with markers, location information, user rating, and a link to external details about the location. After completing a profile, users are able to safely and securely login/out and save locations to their favorites with immediate updates to their personalized favorites page. GOH! uses a PostgreSQL database to store user profile data, favorite parks, and API location details, and is built with a Python/Flask backend.
