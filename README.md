@@ -13,7 +13,7 @@ GOH! was created by Noelle Notermann, a software engineer in Minnesota. After st
 ![alt text](https://github.com/NoelleinMN/goh/blob/master/static/images/GOH-error-handling.gif "GOH homepage gif")
 
 ## Deployment
-<n/>coming in 2021
+[Deployed with AWS](https://100.26.108.130/)
 
 ## Contents
 * [Tech Stack](#tech-stack)
