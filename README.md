@@ -12,6 +12,7 @@ GOH! was created by Noelle Notermann, a software engineer in Minnesota. After st
 
 ## Deployment
 [Deployed with AWS](https://100.26.108.130/)
+<n/>
 ![alt text](https://github.com/NoelleinMN/goh/blob/master/static/images/GOH-error-handling.gif "GOH homepage gif")
 
 ## Contents
