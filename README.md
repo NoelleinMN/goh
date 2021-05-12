@@ -53,7 +53,7 @@ A transparent modal pulls random inspirational quotes which refresh with each pa
 #### Design Concept
 Wanting users to feel as though there are no barriers between them and nature, the design of GOH! is light and transparent, even for error handling.
 
-![alt text](https://github.com/NoelleinMN/goh/blob/master/static/images/GOH-error-handling.mov "GOH design and error modal")
+![alt text](https://github.com/NoelleinMN/goh/blob/master/static/images/GOH-error-handling.mp4 "GOH design and error modal")
 
 #### Featured Parks
 Using a random query pulling results from the PostgreSQL database, visitors to the site can view maps of two "featured parks" which have been favorited by any user in the database.
