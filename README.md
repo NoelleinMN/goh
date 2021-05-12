@@ -10,6 +10,8 @@ Return results include a user's personalized map with markers, location informat
 ## About the Developer
 GOH! was created by Noelle Notermann, a software engineer in Minnesota. After studying music, languages, and mathematics in college, she went on to earn graduate degrees in music performance and pedagogy, with focus areas in higher education administration and women in leadership. She volunteers as a conflict coach and facilitative mediator in the areas of social justice, DEI, and restorative community dialogues. A natural problem solver, Noelle began to see patterns in her vocations and avocations that could benefit from improved technologies, and thus started a journey of self study that led to a love of coding. Learn more about the developer at www.linkedin.com/in/noellenotermann.
 
+![alt text](https://github.com/NoelleinMN/goh/blob/master/static/images/GOH-error-handling.gif "GOH homepage gif")
+
 ## Deployment
 <n/>coming in 2021
 
@@ -53,7 +55,7 @@ A transparent modal pulls random inspirational quotes which refresh with each pa
 #### Design Concept
 Wanting users to feel as though there are no barriers between them and nature, the design of GOH! is light and transparent, even for error handling.
 
-![alt text](https://github.com/NoelleinMN/goh/blob/master/static/images/GOH-error-handling.gif "GOH design and error modal")
+![alt text](https://github.com/NoelleinMN/goh/blob/master/static/images/GOH-error-handling.png "GOH design and error modal")
 
 #### Featured Parks
 Using a random query pulling results from the PostgreSQL database, visitors to the site can view maps of two "featured parks" which have been favorited by any user in the database.
